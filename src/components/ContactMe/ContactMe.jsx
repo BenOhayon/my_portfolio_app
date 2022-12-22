@@ -9,7 +9,7 @@ export default function ContactMe() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // console.log(import.meta.env);
+    console.log(import.meta.env);
 
     // send an email
     emailjs.sendForm(
