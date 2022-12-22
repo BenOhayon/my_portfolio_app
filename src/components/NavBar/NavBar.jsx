@@ -12,7 +12,7 @@ export default function NavBar() {
         <h1 className='nav-title'>Ben Ohayon - Fullstack Web Developer</h1>
       </div>
       <div className="nav-buttons">
-        <NavLink className='nav-home-button nav-button' to='/home'>
+        <NavLink className='nav-home-button nav-button' to='/'>
           <img src={HouseNavImage} alt='house-nav-button' />
         </NavLink>
         <NavLink className='nav-user-button nav-button' to='/about'>
