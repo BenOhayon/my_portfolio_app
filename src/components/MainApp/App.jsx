@@ -12,9 +12,9 @@ function App() {
       <NavBar />
       <div className='container'>
         <Routes>
-          <Route path='/home' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/about' element={<About />} />
-          <Route path='*' element={<Navigate to='/home' />} />
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </div>
     </>
