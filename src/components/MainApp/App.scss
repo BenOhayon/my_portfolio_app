@@ -1,0 +1,24 @@
+
+:root {
+  --page-background-color: hsl(250, 75%, 25%);
+}
+
+body {
+  background-color: var(--page-background-color);
+  font-family: 'Helvetica', 'sans serif';
+  color: white;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  z-index: 10;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  padding: 15px;
+  padding-top: 120px;
+}

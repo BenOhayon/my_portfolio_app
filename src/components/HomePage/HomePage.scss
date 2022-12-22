@@ -1,0 +1,17 @@
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+}
+
+.header {
+  font-size: 30px;
+  font-style: italic;
+}
+
+.paragraph-content {
+  line-height: 1.7;
+  font-size: 24px;
+}
