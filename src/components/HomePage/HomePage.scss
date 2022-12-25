@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 30px;
-  transform: translateY(var(--navbar-height));
+  transform: translateY(calc(var(--navbar-height) + 20px));
 }
 
 .header {

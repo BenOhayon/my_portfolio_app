@@ -6,10 +6,6 @@
   --theme-color: hsl(24, 100%, 50%);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: var(--page-background-color);
   font-family: 'Helvetica', 'sans serif';
@@ -19,6 +15,17 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none; 
   z-index: 10;
+}
+
+.button {
+  font-size: 1.3rem;
+  padding: 8px 13px;
+  width: 60%;
+  max-width: 150px;
+  min-width: 87px;
+  border-radius: 15px;
+  background-color: #cccccc;
+  cursor: pointer;
 }
 
 a {
@@ -31,7 +38,7 @@ h2 {
 }
 
 section {
-  padding: 10% 0;
+  padding-bottom: 300px;
 }
 
 body::-webkit-scrollbar {

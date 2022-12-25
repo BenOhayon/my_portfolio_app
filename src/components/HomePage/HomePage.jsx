@@ -3,9 +3,9 @@ import About from '../About/About'
 import Projects from '../Projects/Projects'
 import ContactMe from '../ContactMe/ContactMe'
 import Hero from '../Hero/Hero'
+import Footer from '../Footer/Footer'
 
 import './HomePage.scss'
-import Footer from '../Footer/Footer'
 
 export default function HomePage() {
   
