@@ -2,13 +2,13 @@
 :root {
   --page-background-color: #F5F5DC;
   --overall-font-color: black;
-  --navbar-height: 80px;
+  --navbar-height: 70px;
   --theme-color: hsl(24, 100%, 50%);
 }
 
 body {
   background-color: var(--page-background-color);
-  font-family: 'Helvetica', 'sans serif';
+  font-family: 'europa', 'Source Sans Pro', 'Helvetica', 'sans serif';
   color: var(--overall-font-color);
   margin: 0;
   padding: 0;
@@ -18,14 +18,22 @@ body {
 }
 
 .button {
+  font-family: 'Source Sans Pro', 'Helvetica', 'sans serif';
   font-size: 1.3rem;
   padding: 8px 13px;
   width: 60%;
   max-width: 150px;
   min-width: 87px;
-  border-radius: 15px;
-  background-color: #cccccc;
+  border-radius: 7px;
+  background-color: var(--theme-color);
+  color: white;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: translate 200ms linear;
+
+  &:hover {
+    translate: 0 -2px;
+  }
 }
 
 a {

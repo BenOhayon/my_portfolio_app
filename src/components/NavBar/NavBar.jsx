@@ -16,9 +16,9 @@ export default function NavBar() {
     <nav>
       <div className='nav-title nav-button' onClick={scrollToPageTop}>Ben Ohayon</div>
       <ul className="nav-buttons">
-        <li><ScrollLink to='about' className='nav-user-button nav-button' spy={true} offset={-20} smooth={true} duration={500}>About</ScrollLink></li>
-        <li><ScrollLink to='contact' className='nav-user-button nav-button' spy={true} offset={-110} smooth={true} duration={500}>Contact</ScrollLink></li>
-        <li><ScrollLink to='contact' className='nav-user-button nav-button' spy={true} offset={-20} smooth={true} duration={500}>Resume</ScrollLink></li>
+        <li><ScrollLink to='about' className='nav-about-button nav-button' spy={true} offset={-110} smooth={true} duration={500}>About</ScrollLink></li>
+        <li><ScrollLink to='contact' className='nav-contact-button nav-button' spy={true} offset={-110} smooth={true} duration={500}>Contact</ScrollLink></li>
+        <li><a href='../../../documents/resume.pdf' target='_blank' className='nav-resume-button' download>Resume</a></li>
       </ul>
     </nav>
   )

@@ -27,9 +27,9 @@ export default function ContactMe() {
       <h2 className='contact-me-title header'>Contact</h2>
       <h2 className='contact-me-title'>Interested in hiring me? <br/> Please send me an email and we can have a phone call in no time!</h2>
       <form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
-        <input className='contact-name-input contact-input' type='text' name='name' placeholder='Full Name' />
-        <input className='contact-subject-input contact-input' type='text' name='subject' placeholder='Subject' />
-        <textarea className='contact-content-input contact-input' name='message' placeholder='Your Message' rows={15} />
+        <input className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
+        <input className='contact-subject-input contact-input' type='text' name='subject' placeholder='Enter subject' />
+        <textarea className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={15} />
 
         <button className='contact-send-button button'>Send</button>
       </form>
