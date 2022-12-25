@@ -5,6 +5,7 @@ import ContactMe from '../ContactMe/ContactMe'
 import Hero from '../Hero/Hero'
 
 import './HomePage.scss'
+import Footer from '../Footer/Footer'
 
 export default function HomePage() {
   
@@ -14,6 +15,7 @@ export default function HomePage() {
       <About />
       {/* <Projects /> */}
       <ContactMe />
+      <Footer />
     </div>
   )
 }

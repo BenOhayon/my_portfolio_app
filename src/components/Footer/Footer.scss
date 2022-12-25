@@ -1,0 +1,48 @@
+
+.footer-container {
+  background-color: black;
+  color: white;
+
+  .footer-content {
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: #cccccc;
+      height: 1px;
+      width: 90%;
+      bottom: 20px;
+    }
+
+    .footer-summery {
+      text-align: start;
+
+      .footer-summery-subtitle {
+        line-height: 2;
+      }
+    }
+    
+    .footer-social-content {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  .footer-copyright {
+    padding: 3%;
+    font-size: 11px;
+  }
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-title {
+  text-transform: uppercase;
+}
