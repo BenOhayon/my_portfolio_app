@@ -23,11 +23,11 @@ const techStack = {
 
 export default function TechStack() {
   return (
-    <section className='tech-stack-container'>
-      <h2 className='tech-stack-title header'>I have worked and developed with the following technologies:</h2>
+    <div className='tech-stack-container'>
+      <h2 className='tech-stack-title'>I have worked and developed with the following technologies:</h2>
       <div className="tech-tiles-frame">
         {Object.keys(techStack).map(tech => <TechTile key={techStack[tech]} techName={tech} techImageUrl={techStack[tech]} />)}
       </div>
-    </section>
+    </div>
   )
 }

@@ -1,22 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll'
+import { Link as RouteLink } from 'react-router-dom'
 
 import './NavBar.scss'
 
 export default function NavBar() {
 
-  function scrollTo(element) {
-    element.scrollIntoView(false)
+  function scrollToPageTop() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
-
+  
   return (
     <nav>
-      <Link className='nav-title nav-button'>Ben Ohayon</Link>
+      <div className='nav-title nav-button' onClick={scrollToPageTop}>Ben Ohayon</div>
       <ul className="nav-buttons">
-        <li><Link className='nav-home-button nav-button' to='/'>Home</Link></li>
-        <li><Link className='nav-user-button nav-button' to='#about'>About</Link></li>
-        <li onClick={scrollTo}><Link className='nav-user-button nav-button' to='#contact'>Contact</Link></li>
-        <li><Link className='nav-user-button nav-button' to='#contact'>Resume</Link></li>
+        {/* <li><ScrollLink to='hero' className='nav-home-button nav-button' spy={true} smooth={true} duration={200}>Home</ScrollLink></li> */}
+        <li><ScrollLink to='about' className='nav-user-button nav-button' spy={true} smooth={true} duration={200}>About</ScrollLink></li>
+        <li><ScrollLink to='contact' className='nav-user-button nav-button' spy={true} smooth={true} duration={200}>Contact</ScrollLink></li>
+        <li><ScrollLink to='contact' className='nav-user-button nav-button' spy={true} smooth={true} duration={200}>Resume</ScrollLink></li>
       </ul>
     </nav>
   )

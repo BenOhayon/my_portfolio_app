@@ -1,6 +1,5 @@
 
 $nav-button-dimens: 30px;
-$hovered-nav-button-text-color: hsl(24, 100%, 50%);
 
 nav {
   padding: 10px 3%;
@@ -25,7 +24,7 @@ nav {
     transition: color 250ms linear;
 
     &:hover {
-      color: $hovered-nav-button-text-color;
+      color: var(--theme-color);
     }
   }
 

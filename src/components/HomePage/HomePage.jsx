@@ -1,18 +1,17 @@
 import React from 'react'
-import Summery from '../About/About'
-import TechStack from '../TechStack/TechStack'
+import About from '../About/About'
 import Projects from '../Projects/Projects'
 import ContactMe from '../ContactMe/ContactMe'
-import NavBar from '../NavBar/NavBar'
+import Hero from '../Hero/Hero'
 
 import './HomePage.scss'
 
 export default function HomePage() {
+  
   return (
     <div className='home-page-container'>
-      <NavBar />
-      <Summery />
-      <TechStack />
+      <Hero />
+      <About />
       {/* <Projects /> */}
       <ContactMe />
     </div>
