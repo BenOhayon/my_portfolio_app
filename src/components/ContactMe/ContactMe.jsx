@@ -23,7 +23,7 @@ export default function ContactMe() {
   }
 
   return (
-    <div className='contact-me-container'>
+    <section id='contact' className='contact-me-container'>
       <h2 className='contact-me-title'>Interested in hiring me? <br/> Please send me an email and we can have a phone call in no time!</h2>
       <form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
         <input className='contact-name-input contact-input' type='text' name='name' placeholder='Full Name' />
@@ -32,6 +32,6 @@ export default function ContactMe() {
 
         <button className='contact-send-button'>Send</button>
       </form>
-    </div>
+    </section>
   )
 }

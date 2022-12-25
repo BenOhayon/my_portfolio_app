@@ -1,17 +1,31 @@
 
 :root {
-  --page-background-color: hsl(250, 75%, 25%);
+  --page-background-color: #F5F5DC;
+  --overall-font-color: black;
+  --navbar-height: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--page-background-color);
   font-family: 'Helvetica', 'sans serif';
-  color: white;
+  color: var(--overall-font-color);
   margin: 0;
   padding: 0;
   -ms-overflow-style: none;
   scrollbar-width: none; 
   z-index: 10;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding: 10% 0;
 }
 
 body::-webkit-scrollbar {
@@ -20,5 +34,4 @@ body::-webkit-scrollbar {
 
 .container {
   padding: 15px;
-  padding-top: 120px;
 }
