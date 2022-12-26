@@ -24,10 +24,47 @@
   padding: 17px 15px;
   border-radius: 4px;
   border: none;
-  background-color: #ccc;
+  background-color: hsl(0, 0%, 93%);
   color: #333;
+
+  &.input-error {
+    border: 1.5px solid red;
+  }
 
   &:focus {
     outline: 1.5px solid darkblue;
+  }
+}
+
+.contact-lower-frame {
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+
+  .contact-feedback-message.success {
+    color: green;
+  }
+
+  .contact-feedback-message.fail {
+    color: red;
+  }
+}
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border: 2px solid #ccc;
+  border-top: 2px solid darkblue;
+  border-radius: 50%;
+  animation: spin 1s infinite ease-in-out;
+  margin: auto;
+}
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
   }
 }
