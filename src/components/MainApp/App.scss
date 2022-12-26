@@ -1,22 +1,56 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700;800;900&family=Lato&family=Source+Sans+Pro:wght@600&display=swap');
 
 :root {
   --page-background-color: #F5F5DC;
   --overall-font-color: black;
   --navbar-height: 70px;
-  --theme-color: hsl(24, 100%, 50%);
+  --theme-color: #6E07F3;
+  --go-to-page-top-button-animation-duration: 400ms;
+  --go-to-page-top-button-margins: 100px;
+  --go-to-page-top-button-dimens: 70px;
 }
 
 body {
   background-color: var(--page-background-color);
-  font-family: 'Source Sans Pro', 'sans serif';
+  font-family: 'Catamaran', 'Source Sans Pro', 'sans serif';
   color: var(--overall-font-color);
   margin: 0;
   padding: 0;
   -ms-overflow-style: none;
   scrollbar-width: none; 
   z-index: 10;
+}
+
+.slide-to-page-top-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: var(--go-to-page-top-button-margins);
+  right: var(--go-to-page-top-button-margins);
+  width: var(--go-to-page-top-button-dimens);
+  height: var(--go-to-page-top-button-dimens);
+  background-color: var(--theme-color);
+  border-radius: 50%;
+  box-shadow: 0 0 11px 4px white;
+  cursor: pointer;
+  scale: 1;
+  transition: translate var(--go-to-page-top-button-animation-duration) linear, scale var(--go-to-page-top-button-animation-duration) cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    translate: 0 -2px;
+  }
+
+  &.hidden {
+    scale: 0;
+  }
+
+  & img {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 2px;
+  }
 }
 
 .section-inner-title {
@@ -26,7 +60,7 @@ body {
 }
 
 .button {
-  font-family: 'Source Sans Pro', 'Helvetica', 'sans serif';
+  font-family: inherit;
   font-size: 1.3rem;
   padding: 8px 13px;
   width: 60%;
@@ -34,6 +68,7 @@ body {
   min-width: 87px;
   border-radius: 4px;
   border: none;
+  box-shadow: 0 0 10px 2px #ccc;
   background-color: var(--theme-color);
   color: white;
   text-transform: uppercase;

@@ -3,14 +3,7 @@ import { Link as ScrollLink } from 'react-scroll'
 
 import './NavBar.scss'
 
-export default function NavBar() {
-
-  function scrollToPageTop() {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+export default function NavBar({ scrollToPageTop }) {
   
   return (
     <nav>
