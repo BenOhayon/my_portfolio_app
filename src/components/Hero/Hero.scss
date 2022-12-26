@@ -1,6 +1,6 @@
 
 .hero-container {
-  padding: 18% 0;
+  padding: calc(var(--navbar-height) + 13%) 4% calc(var(--navbar-height) + 20%) 4%;
 
   .hero-title {
     font-size: 70px;

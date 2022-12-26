@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@600&display=swap');
+
 :root {
   --page-background-color: #F5F5DC;
   --overall-font-color: black;
@@ -8,13 +10,19 @@
 
 body {
   background-color: var(--page-background-color);
-  font-family: 'europa', 'Source Sans Pro', 'Helvetica', 'sans serif';
+  font-family: 'Source Sans Pro', 'sans serif';
   color: var(--overall-font-color);
   margin: 0;
   padding: 0;
   -ms-overflow-style: none;
   scrollbar-width: none; 
   z-index: 10;
+}
+
+.section-inner-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .button {
@@ -34,6 +42,28 @@ body {
 
   &:hover {
     translate: 0 -2px;
+  }
+}
+
+.header {
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  margin-bottom: 45px;
+  width: 100%;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 1rem);
+    height: 5px;
+    width: 3rem;
+    background: var(--theme-color);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
   }
 }
 

@@ -1,29 +1,33 @@
 
 .about-container {
-  padding-top: calc(var(--navbar-height) + 20px);
-}
-
-.about-personal-frame {
-  width: 70%;
-  max-width: 600px;
-  min-width: 400px;
-  margin: auto;
-  font-size: 21px;
-  text-align: start;
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
-  gap: 30px;
-  border-radius: 10px;
-
-  legend {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-  }
+  align-items: center;
+  padding: 0 4% 300px 4%;
 }
 
-.about-desc {
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  text-align: start;
+  gap: 30px;
+}
+
+.about-subsection {
+  padding: 0 1.2rem;
+}
+
+.about-summery {
+  max-width: 650px;
+}
+
+.about-summery-desc {
   line-height: 1.7;
   font-size: 24px;
+}
+
+@media screen and (max-width: 1085px) {
+  .about-content {
+    flex-direction: column;
+  }
 }

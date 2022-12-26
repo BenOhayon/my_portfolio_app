@@ -24,7 +24,7 @@ const techStack = {
 export default function TechStack() {
   return (
     <div className='tech-stack-container'>
-      <h2 className='tech-stack-title'>I have worked and developed with the following technologies:</h2>
+      <h2 className='tech-stack-title section-inner-title'>Tech Stack</h2>
       <div className="tech-tiles-frame">
         {Object.keys(techStack).map(tech => <TechTile key={techStack[tech]} techName={tech} techImageUrl={techStack[tech]} />)}
       </div>
