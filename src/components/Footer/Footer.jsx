@@ -15,11 +15,11 @@ export default function Footer() {
         <div className="footer-social">
           <h3 className="footer-social-title footer-title">Social</h3>
           <div className="footer-social-content">
-            <a href='https://www.linkedin.com/in/benohayon' target='_blank'>
-              <img className='social-link' src='../../../assets/linkedin-icon.png' />
+            <a className='social-link' href='https://www.linkedin.com/in/benohayon' target='_blank'>
+              <img className='social-link-image' src='../../../assets/linkedin-icon.png' />
             </a>
-            <a href='https://github.com/BenOhayon' target='_blank'>
-              <img className='social-link' src='../../../assets/github-icon.png' />
+            <a className='social-link' href='https://github.com/BenOhayon' target='_blank'>
+              <img className='social-link-image' src='../../../assets/github-icon.png' />
             </a>
           </div>
         </div>
