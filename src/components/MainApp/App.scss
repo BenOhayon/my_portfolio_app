@@ -6,9 +6,9 @@
   --overall-font-color: black;
   --navbar-height: 70px;
   --theme-color: #6E07F3;
-  --go-to-page-top-button-animation-duration: 400ms;
+  --go-to-page-top-button-animation-duration: 250ms;
   --go-to-page-top-button-margins: 100px;
-  --go-to-page-top-button-dimens: 70px;
+  --go-to-page-top-button-dimens: 55px;
 }
 
 body {
@@ -33,7 +33,7 @@ body {
   height: var(--go-to-page-top-button-dimens);
   background-color: var(--theme-color);
   border-radius: 50%;
-  box-shadow: 0 0 11px 4px white;
+  box-shadow: 0 0 11px 4px grey;
   cursor: pointer;
   scale: 1;
   transition: translate var(--go-to-page-top-button-animation-duration) linear, scale var(--go-to-page-top-button-animation-duration) cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -104,6 +104,10 @@ body {
 
 a {
   text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
 }
 
 h2 {
@@ -112,7 +116,7 @@ h2 {
 }
 
 section {
-  padding-bottom: 300px;
+  padding-bottom: 150px;
 }
 
 body::-webkit-scrollbar {

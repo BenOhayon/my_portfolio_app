@@ -76,7 +76,7 @@ export default function ContactMe() {
       <form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
         <input ref={nameRef} onChange={onInputChange} className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
         <input ref={subjectRef} onChange={onInputChange} className='contact-subject-input contact-input' type='text' name='subject' placeholder='Enter subject (optional)' />
-        <textarea ref={messageRef} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={10} />
+        <textarea ref={messageRef} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={7} />
 
         <div className="contact-lower-frame">
           <div ref={feedbackMessageRef} className="contact-feedback-message"></div>

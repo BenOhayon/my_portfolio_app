@@ -13,7 +13,7 @@ export default function HomePage() {
     <div className='home-page-container'>
       <Hero />
       <About />
-      {/* <Projects /> */}
+      <Projects />
       <ContactMe />
       <Footer />
     </div>

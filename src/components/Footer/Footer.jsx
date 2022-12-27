@@ -4,6 +4,11 @@ import footerGithubImage from '../../../assets/github-icon.png'
 
 import './Footer.scss'
 
+const socials = {
+  'https://www.linkedin.com/in/benohayon': footerLinkedinImage,
+  'https://github.com/BenOhayon': footerGithubImage
+}
+
 export default function Footer() {
   return (
     <footer className='footer-container'>
@@ -11,18 +16,18 @@ export default function Footer() {
         <div className="footer-summery">
           <h3 className="footer-summery-title footer-title">Ben Ohayon</h3>
           <p className='footer-summery-subtitle'>
-            Fullstack Web Developer
+            Fullstack Web Developer <br />
+            054-5805203
           </p>
         </div>
         <div className="footer-social">
           <h3 className="footer-social-title footer-title">Social</h3>
           <div className="footer-social-content">
-            <a className='social-link' href='https://www.linkedin.com/in/benohayon' target='_blank'>
-              <img className='social-link-image' src={footerLinkedinImage} />
-            </a>
-            <a className='social-link' href='https://github.com/BenOhayon' target='_blank'>
-              <img className='social-link-image' src={footerGithubImage} />
-            </a>
+            {Object.keys(socials).map(social => {
+              return <a key={social} className='social-link' href={social} target='_blank'>
+                <img className='social-link-image' src={socials[social]} alt='Social image' />
+              </a> 
+            })}
           </div>
         </div>
       </div>

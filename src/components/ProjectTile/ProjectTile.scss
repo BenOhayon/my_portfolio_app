@@ -1,0 +1,36 @@
+
+.project-tile-container {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid darkblue;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: white;
+  transition: translate 200ms linear, box-shadow 200ms linear;
+
+  &:hover {
+    translate: 0 -3px;
+    box-shadow: 0 0 15px 3px grey;
+  }
+
+  & img {
+    height: 70%;
+  }
+
+  & .project-tile-text-frame {
+    text-align: center;
+
+    & .project-desc {
+      width: 70%;
+      margin: 1rem auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1085px) {
+  .project-tile-container {
+    height: 300px;
+  }
+}
