@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import HomePage from '../HomePage/HomePage'
 import NavBar from '../NavBar/NavBar'
+import upArrow from '../../../assets/up-arrow.svg'
 
 import './App.scss'
 
@@ -33,7 +34,7 @@ function App() {
       <NavBar scrollToPageTop={scrollToPageTop} />
       <HomePage />
       <div ref={slideToPageTopButtonRef} onClick={scrollToPageTop} className="slide-to-page-top-button hidden">
-        <img src='../../../assets/up-arrow.svg' alt='Go to page top' />
+        <img src={upArrow} alt='Go to page top' />
       </div>
     </div>
   )

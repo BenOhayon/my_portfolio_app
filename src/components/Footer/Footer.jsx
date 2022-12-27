@@ -1,4 +1,6 @@
 import React from 'react'
+import footerLinkedinImage from '../../../assets/linkedin-icon.png'
+import footerGithubImage from '../../../assets/github-icon.png'
 
 import './Footer.scss'
 
@@ -16,10 +18,10 @@ export default function Footer() {
           <h3 className="footer-social-title footer-title">Social</h3>
           <div className="footer-social-content">
             <a className='social-link' href='https://www.linkedin.com/in/benohayon' target='_blank'>
-              <img className='social-link-image' src='../../../assets/linkedin-icon.png' />
+              <img className='social-link-image' src={footerLinkedinImage} />
             </a>
             <a className='social-link' href='https://github.com/BenOhayon' target='_blank'>
-              <img className='social-link-image' src='../../../assets/github-icon.png' />
+              <img className='social-link-image' src={footerGithubImage} />
             </a>
           </div>
         </div>
