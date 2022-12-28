@@ -126,3 +126,13 @@ body::-webkit-scrollbar {
 .container {
   padding: 15px;
 }
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1085px) {
+  .slide-to-page-top-button {
+    display: none;
+  }
+}

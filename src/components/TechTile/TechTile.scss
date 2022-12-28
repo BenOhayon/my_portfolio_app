@@ -47,5 +47,9 @@ $fade-in-animation-duration: 250ms;
 @media screen and (max-width: 1085px) {
   .tech-tile-container {
     --tech-tile-dimens: 80px;
+
+    .tech-tile-name {
+      font-size: 13px;
+    }
   }
 }

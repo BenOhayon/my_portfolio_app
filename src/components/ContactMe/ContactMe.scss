@@ -1,6 +1,6 @@
 
 .contact-form {
-  width: 80%;
+  width: 85%;
   max-width: 900px;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
   font-family: inherit;
   font-weight: bold;
   outline: none;
-  width: 93%;
+  width: 97%;
   font-size: 1.2rem;
   padding: 17px 15px;
   border-radius: 4px;
@@ -66,5 +66,15 @@
   }
   to {
     rotate: 360deg;
+  }
+}
+
+@media screen and (max-width: 1085px) {
+  .contact-form {
+    padding: 30px 15px;
+  }
+
+  .contact-input {
+    width: 90%;
   }
 }
