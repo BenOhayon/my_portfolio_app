@@ -16,6 +16,7 @@ const techStack = {
   'Java': 'https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg',
   'Android': 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo.png',
   'PostgreSQL': 'https://www.kreaweb.be/wp-content/uploads/2021/03/postgresql.png',
+  'Node-RED': 'https://img2.freepng.es/20181124/osg/kisspng-clip-art-node-red-node-js-computer-icons-javascrip-clipart-node-red-iconlogo-5bf90d35a04095.3145336615430485016564.jpg',
   'AWS': 'https://pbs.twimg.com/profile_images/1599829788369113089/FrdYoQ1o_400x400.jpg',
   'Heroku': 'https://seeklogo.com/images/H/heroku-logo-90FDE34A7D-seeklogo.com.png',
   'GitHub': 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'

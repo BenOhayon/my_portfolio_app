@@ -15,6 +15,16 @@
   box-shadow: 0 0 12px 5px #ccc;
 }
 
+.contact-me-phone-number {
+  color: black;
+  pointer-events: none;
+  cursor: none;
+}
+
+.contact-me-title {
+  padding: 0 25px;
+}
+
 .contact-input {
   font-family: inherit;
   font-weight: bold;
@@ -76,5 +86,12 @@
 
   .contact-input {
     width: 90%;
+  }
+
+  .contact-me-phone-number {
+    color: black;
+    text-decoration: underline;
+    pointer-events: all;
+    cursor: pointer;
   }
 }

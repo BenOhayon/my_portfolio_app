@@ -17,7 +17,7 @@ export default function Footer() {
           <h3 className="footer-summery-title footer-title">Ben Ohayon</h3>
           <p className='footer-summery-subtitle'>
             Fullstack Web Developer <br />
-            054-5805203
+            Call me on: <a href='tel:0545805203' className='footer-phone-number'>054-5805203</a>
           </p>
         </div>
         <div className="footer-social">

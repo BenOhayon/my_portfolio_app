@@ -16,6 +16,10 @@ export default function About() {
             I'm currently looking for my next challenge as a <strong>fullstack web developer</strong> (preferably frontend) in a place where I can learn, grow and contribute.
             I have passion for coding and learning new technologies, independent and <strong>self learner</strong> with 'can do' attitude.  
           </p>
+          <p className='about-summery-desc paragraph-content'>
+            In addition, I recently developed a <strong>Node-RED</strong> app (a low code platform for IOT applications) for smart home management on a <strong>Raspberry PI</strong>.
+            This app connects to an <strong>ABB PLC</strong>, which is integrated to every electronic device in a house.
+          </p>
         </div>
 
         <div className="about-tech-stack about-subsection">

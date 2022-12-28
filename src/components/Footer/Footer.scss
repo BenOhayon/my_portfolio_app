@@ -6,7 +6,7 @@
   color: white;
 
   .footer-content {
-    padding: 5%;
+    padding: 2% 5%;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -25,6 +25,12 @@
 
       .footer-summery-subtitle {
         line-height: 2;
+
+        .footer-phone-number {
+          color: white;
+          cursor: none;
+          pointer-events: none;
+        }
       }
     }
     
@@ -35,7 +41,7 @@
   }
 
   .footer-copyright {
-    padding: 3%;
+    padding: 0 2% 2% 2%;
     font-size: 11px;
   }
 }
@@ -70,5 +76,11 @@
 @media screen and (max-width: 1085px) {
   .social-link {
     transition: none;
+  }
+
+  .footer-container .footer-content .footer-summery .footer-summery-subtitle .footer-phone-number {
+    cursor: pointer;
+    pointer-events: all;
+    text-decoration: underline;
   }
 }

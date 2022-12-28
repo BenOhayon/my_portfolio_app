@@ -11,21 +11,6 @@ export default function NavBar({ scrollToPageTop }) {
 
   const mobileMenuRef = useRef()
 
-  const onButtonClick = () => {
-    // using Java Script method to get PDF file
-    fetch('SamplePDF.pdf').then(response => {
-        response.blob().then(blob => {
-            // Creating new object of PDF file
-            const fileURL = window.URL.createObjectURL(blob);
-            // Setting various property values
-            let alink = document.createElement('a');
-            alink.href = fileURL;
-            alink.download = 'SamplePDF.pdf';
-            alink.click();
-        })
-    })
-}
-
   function toggleNavBarMenu(e) {
     mobileMenuRef.current.classList.toggle('hidden')
   }
@@ -48,7 +33,7 @@ export default function NavBar({ scrollToPageTop }) {
         <li><ScrollLink onClick={closeNavBarMenu} to='about' className='nav-about-button menu-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>About</ScrollLink></li>
         <li><ScrollLink onClick={closeNavBarMenu} to='projects' className='nav-about-button menu-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>Projects</ScrollLink></li>
         <li><ScrollLink onClick={closeNavBarMenu} to='contact' className='nav-contact-button menu-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>Contact</ScrollLink></li>
-        <li><a href={resumeFile} target='_blank' className='menu-button' download>Download Resume</a></li>
+        <li><a href={resumeFile} target='_blank' onClick={closeNavBarMenu} className='menu-button' download='ben_ohayon_resume'>Download Resume</a></li>
       </ul>
     </nav>
   )

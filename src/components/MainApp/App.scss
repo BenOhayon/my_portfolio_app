@@ -7,7 +7,8 @@
   --navbar-height: 70px;
   --theme-color: #6E07F3;
   --go-to-page-top-button-animation-duration: 250ms;
-  --go-to-page-top-button-margins: 100px;
+  --go-to-page-top-button-margin-right: 100px;
+  --go-to-page-top-button-margin-bottom: 60px;
   --go-to-page-top-button-dimens: 55px;
 }
 
@@ -27,8 +28,8 @@ body {
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: var(--go-to-page-top-button-margins);
-  right: var(--go-to-page-top-button-margins);
+  bottom: var(--go-to-page-top-button-margin-bottom);
+  right: var(--go-to-page-top-button-margin-right);
   width: var(--go-to-page-top-button-dimens);
   height: var(--go-to-page-top-button-dimens);
   background-color: var(--theme-color);

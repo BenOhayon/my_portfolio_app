@@ -72,6 +72,7 @@ nav {
       
       a {
         color: black;
+        width: 100%;
       }
     }
 
@@ -98,5 +99,13 @@ li {
 
   nav .nav-buttons {
     display: none;
+  }
+
+  nav .nav-button {
+    transition: none;
+    
+    &:hover {
+      color: black;
+    }
   }
 }
