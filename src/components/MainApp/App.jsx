@@ -13,9 +13,9 @@ function App() {
   useEffect(() => {
     window.onscroll = function() {
       if (window.pageYOffset === 0) {
-        slideToPageTopButtonRef.current.classList.add('hidden')
+        slideToPageTopButtonRef.current.classList.add('hide')
       } else {
-        slideToPageTopButtonRef.current.classList.remove('hidden')
+        slideToPageTopButtonRef.current.classList.remove('hide')
       }
     };
 
@@ -33,7 +33,7 @@ function App() {
     <div ref={mainDivRef}>
       <NavBar scrollToPageTop={scrollToPageTop} />
       <HomePage />
-      <div ref={slideToPageTopButtonRef} onClick={scrollToPageTop} className="slide-to-page-top-button hidden">
+      <div ref={slideToPageTopButtonRef} onClick={scrollToPageTop} className="slide-to-page-top-button hide">
         <img src={upArrow} alt='Go to page top' />
       </div>
     </div>
