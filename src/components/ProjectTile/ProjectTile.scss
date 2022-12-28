@@ -9,20 +9,21 @@
   cursor: pointer;
   background-color: white;
   transition: translate 200ms linear, box-shadow 200ms linear;
+  color: black;
 
   &:hover {
     translate: 0 -3px;
     box-shadow: 0 0 15px 3px grey;
   }
 
-  & img {
+  img {
     height: 70%;
   }
 
-  & .project-tile-text-frame {
+  .project-tile-text-frame {
     text-align: center;
 
-    & .project-desc {
+    .project-desc {
       width: 70%;
       margin: 1rem auto;
     }

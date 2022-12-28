@@ -77,6 +77,10 @@ nav {
       height: 40px;
       text-align: center;
       background-color: white;
+      
+      a {
+        color: black;
+      }
     }
 
     li:not(:last-child) {
