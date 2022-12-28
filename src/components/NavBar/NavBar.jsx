@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import menuIcon from '../../../assets/menu-icon.svg'
+import resumeFile from '../../../documents/resume.pdf'
 
 import './NavBar.scss'
 
@@ -25,7 +26,7 @@ export default function NavBar({ scrollToPageTop }) {
         <li><ScrollLink to='about' className='nav-about-button nav-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>About</ScrollLink></li>
         <li><ScrollLink to='projects' className='nav-about-button nav-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>Projects</ScrollLink></li>
         <li><ScrollLink to='contact' className='nav-contact-button nav-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>Contact</ScrollLink></li>
-        <li><a href='../../../documents/resume.pdf' target='_blank' className='nav-resume-button' download>Resume</a></li>
+        <li><a href={resumeFile} target='_blank' className='nav-resume-button' download='ben_ohayon_resume'>Resume</a></li>
       </ul>
       <div className='mobile-navbar-menu-button hidden' onClick={toggleNavBarMenu}><img src={menuIcon} alt='mobile navbar menu' /></div>
       <ul ref={mobileMenuRef} className="mobile-navbar-menu hidden">

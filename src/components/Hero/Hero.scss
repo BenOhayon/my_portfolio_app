@@ -1,6 +1,6 @@
 
 .hero-container {
-  padding: calc(var(--navbar-height) + 13%) 4% calc(var(--navbar-height) + 20%) 4%;
+  padding: calc(var(--navbar-height) + 10%) 4% calc(var(--navbar-height) + 20%) 4%;
 
   .hero-title {
     font-size: 90px;
@@ -16,7 +16,11 @@
 }
 
 @media screen and (max-width: 1085px) {
-  .hero-container .hero-title {
-    font-size: 70px;
+  .hero-container {
+    padding: calc(var(--navbar-height)) 4% calc(var(--navbar-height) + 20%) 3%;
+
+    .hero-title {
+      font-size: 70px;
+    }
   }
 }
