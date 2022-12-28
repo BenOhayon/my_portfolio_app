@@ -7,8 +7,12 @@ import './App.scss'
 
 function App() {
 
-  const mainDivRef = useRef()
   const slideToPageTopButtonRef = useRef()
+  const mobileNavBarMenuRef = useRef()
+
+  function closeNavBarMenu(e) {
+    mobileNavBarMenuRef.current.classList.add('hidden')
+  }
 
   useEffect(() => {
     window.onscroll = function() {
@@ -30,9 +34,9 @@ function App() {
   }
 
   return (
-    <div ref={mainDivRef}>
-      <NavBar scrollToPageTop={scrollToPageTop} />
-      <HomePage />
+    <div>
+      <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} onNavBarMenuOptionClick={closeNavBarMenu} />
+      <HomePage onClick={closeNavBarMenu} />
       <div ref={slideToPageTopButtonRef} onClick={scrollToPageTop} className="slide-to-page-top-button hide">
         <img src={upArrow} alt='Go to page top' />
       </div>

@@ -7,10 +7,10 @@ import Footer from '../Footer/Footer'
 
 import './HomePage.scss'
 
-export default function HomePage() {
+export default function HomePage({ onClick }) {
   
   return (
-    <div className='home-page-container'>
+    <div onClick={onClick} className='home-page-container'>
       <Hero />
       <About />
       <Projects />
