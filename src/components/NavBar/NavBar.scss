@@ -50,14 +50,6 @@ nav {
     padding-inline-start: 0;
   }
 
-  .mobile-navbar-menu-button {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .mobile-navbar-menu {
     position: absolute;
     width: 100%;
@@ -95,6 +87,8 @@ li {
 
 @media screen and (max-width: 685px) {
   nav .mobile-navbar-menu-button {
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
