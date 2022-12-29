@@ -1,7 +1,9 @@
 import React from 'react'
 import flashTriviaProjectThumbnail from '../../../assets/flash-trivia-thumbnail.png'
 import portfolioProjectThumbnail from '../../../assets/portfolio-thumbnail.png'
-import ProjectTile from '../ProjectTile/ProjectTile'
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from 'react-responsive-carousel'
+import Carousel from '../Carousel/Carousel'
 
 import './Projects.scss'
 
@@ -21,21 +23,12 @@ const projects = [
 ]
 
 export default function Projects() {
+
   return (
     <section id='projects' className='projects-container'>
       <h2 className='projects-title header'>My Projects</h2>
-      <div className="projects-list">
-        {
-          projects.map(project => 
-                    <ProjectTile
-                      key={project.url}
-                      name={project.name} 
-                      description={project.description} 
-                      url={project.url} 
-                      thumbnail={project.thumbnail}/>
-                    )
-        }
-      </div>
+      <Carousel projects={projects} />
+      {/* <CarouselIndicator carouselIndex={0} length={2} /> */}
     </section>
   )
 }

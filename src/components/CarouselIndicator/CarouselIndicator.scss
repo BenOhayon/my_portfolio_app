@@ -1,0 +1,23 @@
+
+.carousel-indicator-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: auto;
+  flex-wrap: wrap;
+
+  .carousel-indicator {
+    background-color: white;
+    padding: 3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 200ms linear;
+
+    &.active {
+      background-color: var(--theme-color);
+    }
+  }
+}
