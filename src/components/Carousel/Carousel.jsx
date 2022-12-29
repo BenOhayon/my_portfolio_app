@@ -7,7 +7,7 @@ import './Carousel.scss'
 
 export default function Carousel({ projects }) {
 
-  const [carouselIndex, setCarouselIndex] = useState(1)
+  const [carouselIndex, setCarouselIndex] = useState(0)
 
 
   function goToNextElement() {
@@ -36,7 +36,7 @@ export default function Carousel({ projects }) {
         <CarouselButton onClick={goToPreviousElement} direction='previous' />
         <div className='slides'>
           { projects.map((project, index) => 
-                      <div style={{ translate: `calc(${carouselIndex} * -118.4%)`}} className='carousel-item'>
+                      <div style={{ translate: `calc(${carouselIndex} * -115%)`}} className='carousel-item'>
                         <ProjectTile key={project.url} 
                                       isSelected={carouselIndex === index} 
                                       name={project.name} 
