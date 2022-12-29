@@ -76,6 +76,18 @@
 @media screen and (max-width: 1085px) {
   .social-link {
     transition: none;
+
+    &-image {
+      transition: none;
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:hover > .social-link-image {
+      filter: none;
+    }
   }
 
   .footer-container .footer-content .footer-summery .footer-summery-subtitle .footer-phone-number {
