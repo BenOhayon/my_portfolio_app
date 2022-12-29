@@ -31,12 +31,12 @@
 
 @media screen and (max-width: 1085px) {
   .carousel-slider {
-    width: 580px;
     gap: 25px;
+    padding: 0;
 
     .slides {
       height: 370px;
-      width: 65%;
+      width: 377px;
 
       .carousel-item {
         margin: auto 24.5px;
