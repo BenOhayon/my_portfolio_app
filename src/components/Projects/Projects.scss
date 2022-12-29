@@ -1,9 +1,4 @@
 
-.projects-list {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(40%, 600px));
-  gap: 15px;
-  padding: 0 10%;
+.carousel.carousel-slider {
+  margin: auto;
 }
