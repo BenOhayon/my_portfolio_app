@@ -19,12 +19,12 @@
   }
 
   img {
-    height: 70%;
+    flex-grow: 7;
   }
 
   .project-tile-text-frame {
     text-align: center;
-    height: 30%;
+    flex-grow: 3;
 
     
     .project-name {
