@@ -9,6 +9,10 @@
   cursor: pointer;
   padding: 10px;
 
+  &.hide {
+    visibility: hidden;
+  }
+
   svg {
     display: block;
     width: 20px;
