@@ -1,6 +1,7 @@
 
 nav {
   --navbar-button-animations-duration: 250ms;
+  --navbar-image-dimens-mobile: 70px;
 
   padding: 10px 3%;
   display: flex;
@@ -12,6 +13,28 @@ nav {
   box-shadow: 0 2px 5px 0px #ccc;
   position: fixed;
   background-color: white;
+
+  .left-nav-frame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    .nav-bar-image-frame {
+      width: var(--navbar-image-dimens-mobile);
+      height: var(--navbar-image-dimens-mobile);
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      
+      .nav-bar-image {
+        position: absolute;
+        width: 100%;
+        top: -10px;
+      }
+    }
+  }
 
   .nav-button,
   .nav-resume-button {
@@ -87,25 +110,41 @@ li {
 }
 
 @media screen and (max-width: 1085px) {
-  nav .mobile-navbar-menu-button {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    padding: 5px;
-  }
 
-  nav .nav-buttons {
-    display: none;
-  }
+  nav {
+    .left-nav-frame {
+      margin-left: 10px;
+      gap: 0px;
 
-  nav .nav-button {
-    transition: none;
-    
-    &:hover {
-      color: black;
+      .nav-title {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-bar-image-frame {
+        --navbar-image-dimens-mobile: 50px;
+      }
+    }
+
+    .mobile-navbar-menu-button {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+      padding: 5px;
+    }
+
+    .nav-buttons {
+      display: none;
+    }
+
+    .nav-button {
+      transition: none;
+      
+      &:hover {
+        color: black;
+      }
     }
   }
 }

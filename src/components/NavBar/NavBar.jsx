@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import menuIcon from '../../../assets/menu-icon.svg'
 import resumeFile from '../../../documents/resume.pdf'
+import navImage from '../../../assets/profile-img-ben.jpg'
 
 import './NavBar.scss'
 
@@ -16,7 +17,12 @@ export default function NavBar({ mobileNavBarMenuRef, scrollToPageTop, onNavBarM
   
   return (
     <nav>
-      <div className='nav-title nav-button' onClick={scrollToPageTop}>Ben Ohayon</div>
+      <div className="left-nav-frame">
+        <div className="nav-bar-image-frame">
+          <img src={navImage} alt='navbar image' className='nav-bar-image' />
+        </div>
+        <div className='nav-title nav-button' onClick={scrollToPageTop}>Ben Ohayon</div>
+      </div>
       <ul className="nav-buttons">
         <li><ScrollLink to='about' className='nav-about-button nav-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>About</ScrollLink></li>
         <li><ScrollLink to='projects' className='nav-about-button nav-button' spy={true} offset={-110} smooth={true} duration={LINK_SLIDING_ANIMATION_DURATION}>Projects</ScrollLink></li>
