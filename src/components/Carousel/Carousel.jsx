@@ -45,8 +45,10 @@ export default function Carousel({ projects }) {
   function setActiveIndicator(index) {
     if (index === 0) {
       carouselPreviousButtonRef.current.classList.add('hide')
-    } else if (index === project.length - 1) {
+      carouselNextButtonRef.current.classList.remove('hide')
+    } else if (index === projects.length - 1) {
       carouselNextButtonRef.current.classList.add('hide')
+      carouselPreviousButtonRef.current.classList.remove('hide')
     } else {
       carouselPreviousButtonRef.current.classList.remove('hide')
       carouselNextButtonRef.current.classList.remove('hide')
