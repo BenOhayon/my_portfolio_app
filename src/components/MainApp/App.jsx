@@ -11,7 +11,7 @@ function App() {
   const mobileNavBarMenuRef = useRef()
 
   function closeNavBarMenu(e) {
-    mobileNavBarMenuRef.current.classList.add('hidden')
+    mobileNavBarMenuRef.current.classList.add('hide')
   }
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div>
-      <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} onNavBarMenuOptionClick={closeNavBarMenu} />
+      <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
       <HomePage onClick={closeNavBarMenu} />
       <div ref={slideToPageTopButtonRef} onClick={scrollToPageTop} className="slide-to-page-top-button hide">
         <img src={upArrow} alt='Go to page top' />
