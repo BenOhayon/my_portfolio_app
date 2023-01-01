@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import CarouselButton from '../CarouselButton/CarouselButton'
 import ProjectTile from '../ProjectTile/ProjectTile'
 import CarouselIndicator from '../CarouselIndicator/CarouselIndicator'
@@ -42,7 +42,7 @@ export default function Carousel({ projects }) {
     })
   }
 
-  function setActiveIndicator(index) {
+  function updateCarouselIndex(index) {
     if (index === 0) {
       carouselPreviousButtonRef.current.classList.add('hide')
       carouselNextButtonRef.current.classList.remove('hide')
@@ -106,7 +106,7 @@ export default function Carousel({ projects }) {
         </div>
         <CarouselButton ref={carouselNextButtonRef} onClick={goToNextElement} direction='next' carouselIndex={carouselIndex} />
       </div>
-      <CarouselIndicator carouselIndex={carouselIndex} length={projects.length} onIndicatorClick={setActiveIndicator} />
+      <CarouselIndicator carouselIndex={carouselIndex} length={projects.length} updateCarouselIndex={updateCarouselIndex} />
     </div>
   )
 }
