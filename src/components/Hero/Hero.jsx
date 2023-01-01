@@ -1,6 +1,6 @@
 import React from 'react'
-import footerLinkedinImage from '../../../assets/linkedin-icon.png'
-import footerGithubImage from '../../../assets/github-icon.png'
+import footerLinkedinImage from '../../../assets/hero-linkedin-image.svg'
+import footerGithubImage from '../../../assets/hero-github-image.svg'
 
 import './Hero.scss'
 
