@@ -75,11 +75,14 @@
 
 .footer-title {
   text-transform: uppercase;
+  text-align: start;
 }
 
 @media screen and (max-width: 1085px) {
   .footer-container .footer-content {
-    padding: 25px 7%;
+    padding: 25px 7% 35px 7%;
+    flex-direction: column;
+    align-items: center;
   }
 
   .social-link {
@@ -96,6 +99,10 @@
     &:hover > .social-link-image {
       filter: none;
     }
+  }
+
+  .footer-title {
+    text-align: center;
   }
 
   .footer-container .footer-content .footer-summery .footer-summery-subtitle .footer-phone-number {

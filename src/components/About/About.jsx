@@ -13,7 +13,7 @@ export default function About() {
           <div className="about-summery-title section-inner-title">Who am I?</div>
           <p className='about-summery-desc paragraph-content'>
             A <strong>fullstack web developer</strong> with 4 years of experience in software development.
-            I'm currently looking for my next challenge as a <strong>fullstack web developer</strong> (preferably frontend) in a place where I can learn, grow and contribute.
+            I'm currently looking for my next challenge as a <strong>fullstack web developer</strong> in a place where I can learn, grow and contribute.
             I have passion for coding and learning new technologies, independent and <strong>self learner</strong> with 'can do' attitude.  
           </p>
           <p className='about-summery-desc paragraph-content'>
