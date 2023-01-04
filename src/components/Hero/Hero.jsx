@@ -1,10 +1,12 @@
 import React from 'react'
+import footerFacebookImage from '../../../assets/hero-facebook-image.png'
 import footerLinkedinImage from '../../../assets/hero-linkedin-image.svg'
 import footerGithubImage from '../../../assets/hero-github-image.svg'
 
 import './Hero.scss'
 
 const socials = {
+  'https://www.facebook.com/profile.php?id=100000341139297': footerFacebookImage,
   'https://www.linkedin.com/in/benohayon': footerLinkedinImage,
   'https://github.com/BenOhayon': footerGithubImage
 }

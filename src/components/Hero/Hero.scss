@@ -4,14 +4,14 @@
   --hero-socials-padding-vertical: 8px;
   --hero-socials-padding-horizontal: 6px;
 
-  padding: calc(var(--navbar-height) + 10%) 4% calc(var(--navbar-height) + 20%) 4%;
+  padding: calc(var(--navbar-height) + 13%) 4% calc(var(--navbar-height) + 25%) 4%;
   position: relative;
 
   .hero-socials {
     width: 50px;
     position: absolute;
     left: 0;
-    top: calc(50% - (var(--hero-socials-padding-vertical) + var(--hero-social-link-dimens) + 10px));
+    top: calc(40% - (var(--hero-socials-padding-vertical) + var(--hero-social-link-dimens) + 10px));
     display: flex;
     flex-direction: column;
     justify-content: center;

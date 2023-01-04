@@ -73,7 +73,7 @@ export default function ContactMe() {
     <section id='contact' className='contact-me-container'>
       <h2 className='contact-me-header header'>Contact</h2>
       <h2 className='contact-me-title'>
-        Interested in working with me? <br /> 
+        Interested in hiring me? <br /> 
         Call me on <a href='tel:0545805203' className='contact-me-phone-number'>054-5805203</a> or send me a message!
       </h2>
       <form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
