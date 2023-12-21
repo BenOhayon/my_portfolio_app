@@ -41,7 +41,6 @@ export default function ContactMe() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(import.meta.env);
 
     if (isVerified(nameRef, messageRef)) {
       setIsProcessing(true)

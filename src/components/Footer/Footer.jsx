@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="footer-summery">
           <h3 className="footer-summery-title footer-title">Ben Ohayon</h3>
           <p className='footer-summery-subtitle'>
-            Fullstack Web Developer <br />
+            Frontend Web Developer <br />
             Call me on: <a href='tel:0545805203' className='footer-phone-number'>054-5805203</a>
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer-copyright">© Copyright 2022. Made by Ben Ohayon</div>
+      <div className="footer-copyright">© Copyright {new Date().getFullYear()}. Developed by Ben Ohayon</div>
     </footer>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import TechTile from '../TechTile/TechTile'
+import awsImage from '../../../assets/aws.jpg'
 
 import './TechStack.scss'
 
@@ -15,10 +16,8 @@ const techStack = {
   'Rails': 'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/rails/rails.png',
   'Java': 'https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg',
   'Android': 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo.png',
-  'PostgreSQL': 'https://www.kreaweb.be/wp-content/uploads/2021/03/postgresql.png',
   'Node-RED': 'https://img2.freepng.es/20181124/osg/kisspng-clip-art-node-red-node-js-computer-icons-javascrip-clipart-node-red-iconlogo-5bf90d35a04095.3145336615430485016564.jpg',
-  'AWS': 'https://pbs.twimg.com/profile_images/1599829788369113089/FrdYoQ1o_400x400.jpg',
-  'Heroku': 'https://seeklogo.com/images/H/heroku-logo-90FDE34A7D-seeklogo.com.png',
+  'AWS': awsImage,
   'GitHub': 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
 }
 
@@ -27,7 +26,7 @@ export default function TechStack() {
     <div className='tech-stack-container'>
       <h2 className='tech-stack-title section-inner-title'>Tech Stack</h2>
       <div className="tech-tiles-frame">
-        {Object.keys(techStack).map(tech => <TechTile key={techStack[tech]} techName={tech} techImageUrl={techStack[tech]} />)}
+        {Object.entries(techStack).map(([techName, techImageUrl]) => <TechTile key={techImageUrl} techName={techName} techImageUrl={techImageUrl} />)}
       </div>
     </div>
   )
