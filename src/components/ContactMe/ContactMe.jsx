@@ -3,90 +3,106 @@ import emailjs from '@emailjs/browser';
 
 import './ContactMe.scss'
 
+const FEEDBACK_MESSAGE_STATUS = {
+	SUCCESS: 'SUCCESS',
+	FAILURE: 'FAILURE'
+}
+
 export default function ContactMe() {
 
-  const [isProcessing, setIsProcessing] = useState(false)
+	const [isProcessing, setIsProcessing] = useState(false)
+	const [feedbackMessageState, setFeedbackMessageState] = useState({
+		message: '',
+		status: ''
+	})
 
-  const formRef = useRef()
-  const nameRef = useRef()
-  const subjectRef = useRef()
-  const messageRef = useRef()
-  const feedbackMessageRef = useRef()
+	const formRef = useRef()
+	const nameRef = useRef()
+	const subjectRef = useRef()
+	const messageRef = useRef()
 
-  function resetFields() {
-    nameRef.current.value = ''
-    subjectRef.current.value = ''
-    messageRef.current.value = ''
-  }
+	function resetFields() {
+		nameRef.current.value = ''
+		subjectRef.current.value = ''
+		messageRef.current.value = ''
+	}
 
-  function onInputChange(e) {
-    e.target.classList.remove('input-error')
-  }
+	function onInputChange(e) {
+		e.target.classList.remove('input-error')
+	}
 
-  function isVerified(name, message) {
-    let verified = true;
+	function isVerified(name, message) {
+		let verified = true;
 
-    if (name.current.value.length === 0) {
-      name.current.classList.add('input-error')
-      verified = false
-    }
+		if (name.current.value.length === 0) {
+			name.current.classList.add('input-error')
+			verified = false
+		}
 
-    if (message.current.value.length === 0) {
-      message.current.classList.add('input-error')
-      verified = false
-    }
+		if (message.current.value.length === 0) {
+			message.current.classList.add('input-error')
+			verified = false
+		}
 
-    return verified
-  }
+		return verified
+	}
 
-  function handleSubmit(e) {
-    e.preventDefault()
+	function handleSubmit(e) {
+		e.preventDefault()
+		setFeedbackMessageState(prev => ({
+			...prev,
+			message: ''
+		}))
 
-    if (isVerified(nameRef, messageRef)) {
-      setIsProcessing(true)
-      // send an email
-      emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
-        import.meta.env.VITE_EMAILJS_PORTFOLIO_TEMPLATE_ID, 
-        formRef.current, 
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(res => {
-        console.log(res)
-        feedbackMessageRef.current.classList.add('success')
-        feedbackMessageRef.current.innerText = 'Your email has been sent'
-        resetFields()
-        setIsProcessing(false)
-      })
-      .catch(err => {
-        console.log(err)
-        feedbackMessageRef.current.classList.add('fail')
-        feedbackMessageRef.current.innerText = 'An error occurred'
-        resetFields()
-        setIsProcessing(false)
-      })
-    }
-  }
+		if (isVerified(nameRef, messageRef)) {
+			setIsProcessing(true)
+			// send an email
+			emailjs.sendForm(
+				import.meta.env.VITE_EMAILJS_SERVICE_ID,
+				import.meta.env.VITE_EMAILJS_PORTFOLIO_TEMPLATE_ID,
+				formRef.current,
+				import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+			)
+				.then(res => {
+					console.log(res)
+					setFeedbackMessageState({
+						message: 'Your email has been sent',
+						status: FEEDBACK_MESSAGE_STATUS.SUCCESS
+					})
+					resetFields()
+					setIsProcessing(false)
+				})
+				.catch(err => {
+					console.log(err)
+					setFeedbackMessageState({
+						message: 'An error occurred',
+						status: FEEDBACK_MESSAGE_STATUS.FAILURE
+					})
+					resetFields()
+					setIsProcessing(false)
+				})
+		}
+	}
 
-  return (
-    <section id='contact' className='contact-me-container'>
-      <h2 className='contact-me-header header'>Contact</h2>
-      <h2 className='contact-me-title'>
-        Interested in hiring me? <br /> 
-        Call me on <a href='tel:0545805203' className='contact-me-phone-number'>054-5805203</a> or send me a message!
-      </h2>
-      <form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
-        <input ref={nameRef} onChange={onInputChange} className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
-        <input ref={subjectRef} onChange={onInputChange} className='contact-subject-input contact-input' type='email' name='email' placeholder='Enter your email' />
-        <textarea ref={messageRef} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={7} />
+	return (
+		<section id='contact' className='contact-me-container'>
+			<h2 className='contact-me-header header'>Contact</h2>
+			<h2 className='contact-me-title'>
+				Interested in hiring me? <br />
+				Call me on <a href='tel:0545805203' className='contact-me-phone-number'>054-5805203</a> or send me a message!
+			</h2>
+			<form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
+				<input ref={nameRef} onChange={onInputChange} className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
+				<input ref={subjectRef} onChange={onInputChange} className='contact-subject-input contact-input' type='email' name='email' placeholder='Enter your email' />
+				<textarea ref={messageRef} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={7} />
 
-        <div className="contact-lower-frame">
-          <div ref={feedbackMessageRef} className="contact-feedback-message"></div>
-          <button className='contact-send-button button'>
-            {!isProcessing ? 'Send' : <div className='loader'></div>}
-          </button>
-        </div>
-      </form>
-    </section>
-  )
+				<div className="contact-lower-frame">
+					<div className="contact-feedback-message" style={{ color: feedbackMessageState.status === FEEDBACK_MESSAGE_STATUS.SUCCESS ? 'green' : 'red' }}>{feedbackMessageState.message}</div>
+					<button className='contact-send-button button'>
+						{!isProcessing ? 'Send' : <div className='loader'></div>}
+					</button>
+				</div>
+			</form>
+		</section>
+	)
 }
