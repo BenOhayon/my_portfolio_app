@@ -1,0 +1,8 @@
+.paydin-drawer-swiper {
+    height: 3px;
+    width: 35px;
+    background-color: #dedede;
+    border-radius: 20px;
+    margin: 9px auto 0 auto;
+    flex-shrink: 0;
+}
