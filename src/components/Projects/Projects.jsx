@@ -4,6 +4,7 @@ import portfolioProjectThumbnail from '../../../assets/portfolio-thumbnail.png'
 import Carousel from '../Carousel/Carousel'
 
 import './Projects.scss'
+import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
 
 const projects = [
   {
@@ -24,7 +25,7 @@ export default function Projects() {
 
   return (
     <section id='projects' className='projects-container'>
-      <h2 className='projects-title header'>My Projects</h2>
+      <div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-title header'>My Projects</div>
       <Carousel projects={projects} />
     </section>
   )

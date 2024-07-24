@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser';
 
 import './ContactMe.scss'
+import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants';
 
 const FEEDBACK_MESSAGE_STATUS = {
 	SUCCESS: 'SUCCESS',
@@ -86,23 +87,23 @@ export default function ContactMe() {
 
 	return (
 		<section id='contact' className='contact-me-container'>
-			<h2 className='contact-me-header header'>Contact</h2>
-			<h2 className='contact-me-title'>
-				Interested in hiring me? <br />
-				Call me on <a href='tel:0545805203' className='contact-me-phone-number'>054-5805203</a> or send me a message!
-			</h2>
-			<form ref={formRef} className='contact-form' onSubmit={handleSubmit}>
+			<div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='contact-me-header header'>Contact</div>
+			<div className='contact-me-title'>
+				<div data-aos="fade-left" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='contact-me-content-line-1'>Interested in hiring me?</div>
+				<div data-aos="fade-right" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='contact-me-content-line-2'>Call me on <a href='tel:0545805203' className='contact-me-phone-number'>054-5805203</a> or send me a message!</div>
+			</div>
+			<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} ref={formRef} className='contact-form'>
 				<input ref={nameRef} onChange={onInputChange} className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
 				<input ref={subjectRef} onChange={onInputChange} className='contact-subject-input contact-input' type='email' name='email' placeholder='Enter your email' />
 				<textarea ref={messageRef} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={7} />
 
 				<div className="contact-lower-frame">
 					<div className="contact-feedback-message" style={{ color: feedbackMessageState.status === FEEDBACK_MESSAGE_STATUS.SUCCESS ? 'green' : 'red' }}>{feedbackMessageState.message}</div>
-					<button className='contact-send-button button'>
+					<button className='contact-send-button button' onClick={handleSubmit}>
 						{!isProcessing ? 'Send' : <div className='loader'></div>}
 					</button>
 				</div>
-			</form>
+			</div>
 		</section>
 	)
 }

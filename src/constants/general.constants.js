@@ -1,0 +1,1 @@
+export const AOS_DURATION_MILLISECONDS = 1000

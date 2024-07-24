@@ -5,6 +5,7 @@ import CarouselIndicator from '../CarouselIndicator/CarouselIndicator'
 import { useWindowDimensions } from '../../hooks/useWindowDimensions'
 
 import './Carousel.scss'
+import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
 
 const MOBILE_MAX_WIDTH = 495
 
@@ -89,7 +90,7 @@ export default function Carousel({ projects }) {
   }
 
   return (
-    <div className='carousel' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+    <div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='carousel' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
       <div className="carousel-slider">
         <CarouselButton ref={carouselPreviousButtonRef} onClick={goToPreviousElement} direction='previous' />
         <div className='slides'>
