@@ -11,103 +11,105 @@ const MOBILE_MAX_WIDTH = 495
 
 export default function Carousel({ projects }) {
 
-  const [carouselIndex, setCarouselIndex] = useState(0)
-  const touchPositionRef = useRef(null)
-  const [width, height] = useWindowDimensions()
-  const carouselNextButtonRef = useRef()
-  const carouselPreviousButtonRef = useRef()
+	const [carouselIndex, setCarouselIndex] = useState(0)
+	const touchPositionRef = useRef(null)
+	const [width, height] = useWindowDimensions()
+	const carouselNextButtonRef = useRef()
+	const carouselPreviousButtonRef = useRef()
 
-  function goToNextElement() {
-    carouselPreviousButtonRef.current.classList.remove('hide')
-    if (carouselIndex + 1 === projects.length - 1) {
-      carouselNextButtonRef.current.classList.add('hide')
-    }
+	function goToNextElement() {
+		carouselPreviousButtonRef.current.classList.remove('hide')
+		if (carouselIndex + 1 === projects.length - 1) {
+			carouselNextButtonRef.current.classList.add('hide')
+		}
 
-    setCarouselIndex(prevIndex => {
-      if (prevIndex < projects.length - 1)
-        return prevIndex + 1
-      return prevIndex
-    })
-  }
-  
-  function goToPreviousElement() {
-    carouselNextButtonRef.current.classList.remove('hide')
-    if (carouselIndex - 1 === 0) {
-      carouselPreviousButtonRef.current.classList.add('hide')
-    }
+		setCarouselIndex(prevIndex => {
+			if (prevIndex < projects.length - 1)
+				return prevIndex + 1
+			return prevIndex
+		})
+	}
 
-    setCarouselIndex(prevIndex => {
-      if (prevIndex > 0)
-        return prevIndex - 1
-      return prevIndex
-    })
-  }
+	function goToPreviousElement() {
+		carouselNextButtonRef.current.classList.remove('hide')
+		if (carouselIndex - 1 === 0) {
+			carouselPreviousButtonRef.current.classList.add('hide')
+		}
 
-  function updateCarouselIndex(index) {
-    if (index === 0) {
-      carouselPreviousButtonRef.current.classList.add('hide')
-      carouselNextButtonRef.current.classList.remove('hide')
-    } else if (index === projects.length - 1) {
-      carouselNextButtonRef.current.classList.add('hide')
-      carouselPreviousButtonRef.current.classList.remove('hide')
-    } else {
-      carouselPreviousButtonRef.current.classList.remove('hide')
-      carouselNextButtonRef.current.classList.remove('hide')
-    }
-    setCarouselIndex(index)
-  }
+		setCarouselIndex(prevIndex => {
+			if (prevIndex > 0)
+				return prevIndex - 1
+			return prevIndex
+		})
+	}
 
-  function handleTouchStart(e) {
-    if (width > MOBILE_MAX_WIDTH) 
-      return
+	function updateCarouselIndex(index) {
+		if (index === 0) {
+			carouselPreviousButtonRef.current.classList.add('hide')
+			carouselNextButtonRef.current.classList.remove('hide')
+		} else if (index === projects.length - 1) {
+			carouselNextButtonRef.current.classList.add('hide')
+			carouselPreviousButtonRef.current.classList.remove('hide')
+		} else {
+			carouselPreviousButtonRef.current.classList.remove('hide')
+			carouselNextButtonRef.current.classList.remove('hide')
+		}
+		setCarouselIndex(index)
+	}
 
-    const touchDown = e.touches[0].clientX
-    touchPositionRef.current = touchDown
-  }
+	function handleTouchStart(e) {
+		if (width > MOBILE_MAX_WIDTH)
+			return
 
-  function handleTouchMove(e) {
-    if (width > MOBILE_MAX_WIDTH) 
-      return
+		const touchDown = e.touches[0].clientX
+		touchPositionRef.current = touchDown
+	}
 
-    const touchDown = touchPositionRef.current
+	function handleTouchMove(e) {
+		if (width > MOBILE_MAX_WIDTH)
+			return
 
-    if (touchDown === null) {
-        return
-    }
+		const touchDown = touchPositionRef.current
 
-    const currentTouch = e.touches[0].clientX
-    const diff = touchDown - currentTouch
+		if (touchDown === null) {
+			return
+		}
 
-    if (diff > 5) {
-        goToNextElement()
-    }
+		const currentTouch = e.touches[0].clientX
+		const diff = touchDown - currentTouch
 
-    if (diff < -5) {
-        goToPreviousElement()
-    }
+		if (diff > 5) {
+			goToNextElement()
+		}
 
-    touchPositionRef.current = null
-  }
+		if (diff < -5) {
+			goToPreviousElement()
+		}
 
-  return (
-    <div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='carousel' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
-      <div className="carousel-slider">
-        <CarouselButton ref={carouselPreviousButtonRef} onClick={goToPreviousElement} direction='previous' />
-        <div className='slides'>
-          { projects.map((project, index) => 
-                      <div key={project.url}  style={{ translate: `calc(${carouselIndex} * -115%)`}} className='carousel-item'>
-                        <ProjectTile isSelected={carouselIndex === index} 
-                                      name={project.name} 
-                                      description={project.description} 
-                                      url={project.url} 
-                                      thumbnail={project.thumbnail} />
-                      </div>
-                    )
-          }
-        </div>
-        <CarouselButton ref={carouselNextButtonRef} onClick={goToNextElement} direction='next' carouselIndex={carouselIndex} />
-      </div>
-      <CarouselIndicator carouselIndex={carouselIndex} length={projects.length} updateCarouselIndex={updateCarouselIndex} />
-    </div>
-  )
+		touchPositionRef.current = null
+	}
+
+	return (
+		<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='carousel' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+			<div className="carousel-slider">
+				<CarouselButton ref={carouselPreviousButtonRef} onClick={goToPreviousElement} direction='previous' />
+				<div className='slides'>
+					{projects.map((project, index) =>
+						<div key={project.url} style={{ translate: `calc(${carouselIndex} * -115%)` }} className='carousel-item'>
+							<ProjectTile
+								key={project?.id}
+								isSelected={carouselIndex === index}
+								name={project.name}
+								description={project.description}
+								url={project.url}
+								thumbnail={project.thumbnail} />
+						</div>
+					)
+					}
+				</div>
+				<CarouselButton ref={carouselNextButtonRef} onClick={goToNextElement} direction='next' carouselIndex={carouselIndex} />
+			</div>
+			<CarouselIndicator carouselIndex={carouselIndex} length={projects.length} updateCarouselIndex={updateCarouselIndex} />
+		</div>
+	)
 }

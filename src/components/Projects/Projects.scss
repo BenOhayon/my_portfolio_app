@@ -1,4 +1,8 @@
-
-.carousel.carousel-slider {
-  margin: auto;
+.projects-list {
+    display: grid;
+    justify-content: center;
+    padding-inline: 10px;
+    gap: calc(4px + 15px);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, 460px);
 }
