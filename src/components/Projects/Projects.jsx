@@ -21,13 +21,6 @@ const projects = [
 		url: 'https://bendevportfolio.onrender.com',
 		description: 'My portfolio website',
 		thumbnail: portfolioProjectThumbnail
-	},
-	{
-		id: 3,
-		name: 'Portfolio',
-		url: 'https://bendevportfolio.onrender.com',
-		description: 'My portfolio website',
-		thumbnail: portfolioProjectThumbnail
 	}
 ]
 

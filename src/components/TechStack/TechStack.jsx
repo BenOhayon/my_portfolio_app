@@ -1,24 +1,39 @@
 import React from 'react'
 import TechTile from '../TechTile/TechTile'
 import awsImage from '../../../assets/aws.jpg'
+import reactImage from '../../../assets/react_image.png'
+import nodeImage from '../../../assets/node_image.png'
+import expressImage from '../../../assets/express_image.png'
+import jsImage from '../../../assets/js_image.png'
+import tsImage from '../../../assets/ts_image.png'
+import scssImage from '../../../assets/scss_image.png'
+import htmlImage from '../../../assets/html_image.png'
+import cssImage from '../../../assets/css_image.jpg'
+import rubyImage from '../../../assets/ruby_image.jpg'
+import railsImage from '../../../assets/rails_image.png'
+import javaImage from '../../../assets/java_image.jpg'
+import androidImage from '../../../assets/android_image.png'
+import nodeRedImage from '../../../assets/nodered_image.png'
+import githubImage from '../../../assets/github_image.png'
 
 import './TechStack.scss'
 
 const techStack = {
-	'React': 'https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK_400x400.png',
-	'Node': 'https://cdn-icons-png.flaticon.com/512/919/919825.png',
-	'Express': 'https://w7.pngwing.com/pngs/925/447/png-transparent-express-js-node-js-javascript-mongodb-node-js-text-trademark-logo.png',
-	'JavaScript': 'https://www.citypng.com/public/uploads/preview/js-javascript-round-logo-icon-png-11662226392lsrrajcm0y.png',
-	'SCSS': 'https://miro.medium.com/max/1366/1*HFYKWq92BcXJIdata7d-JQ.png',
-	'HTML5': 'https://www.ujudebug.com/wp-content/uploads/2022/07/html-logo-transparent.png',
-	'CSS3': 'https://www.ujudebug.com/wp-content/uploads/2022/07/css-new-logo.jpg',
-	'Ruby': 'https://ih1.redbubble.net/image.213186038.0307/st,small,507x507-pad,600x600,f8f8f8.u3.jpg',
-	'Rails': 'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/rails/rails.png',
-	'Java': 'https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg',
-	'Android': 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo.png',
-	'Node-RED': 'https://img2.freepng.es/20181124/osg/kisspng-clip-art-node-red-node-js-computer-icons-javascrip-clipart-node-red-iconlogo-5bf90d35a04095.3145336615430485016564.jpg',
+	'React': reactImage,
+	'Node': nodeImage,
+	'Express': expressImage,
+	'JavaScript': jsImage,
+	'TypeScript': tsImage,
+	'SCSS': scssImage,
+	'HTML5': htmlImage,
+	'CSS3': cssImage,
+	'Ruby': rubyImage,
+	'Rails': railsImage,
+	'Java': javaImage,
+	'Android': androidImage,
+	'Node-RED': nodeRedImage,
 	'AWS': awsImage,
-	'GitHub': 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
+	'GitHub': githubImage
 }
 
 export default function TechStack() {

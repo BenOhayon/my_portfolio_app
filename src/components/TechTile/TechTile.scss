@@ -2,47 +2,54 @@
 $fade-in-animation-duration: 250ms;
 
 .tech-tile-container {
-  --tech-tile-dimens: 120px;
+	$tech-tile-dimens: 120px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--tech-tile-dimens);
-  height: var(--tech-tile-dimens);
-  border: 2px solid black;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  background-color: white;
+	width: $tech-tile-dimens;
+	height: $tech-tile-dimens;
 
-  .tech-tile-name {
-    position: absolute;
-    font-size: 19px;
-    opacity: 0;
-    color: black;
-    font-weight: bold;
-    transition: opacity $fade-in-animation-duration linear;
-  }
+  	&:hover {
+		.tech-tile {
+			rotate: y 180deg;
+		}
+	}
 
-  .tech-tile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: opacity $fade-in-animation-duration linear;
-  }
+	.tech-tile {
+		width: 100%;
+		height: 100%;
+		border: 2px solid black;
+		border-radius: 50%;
+		position: relative;
+		background-color: white;
+		transform-style: preserve-3d;
+		transition: rotate 500ms ease-out;
+		
+		.tech-tile-image,
+		.tech-tile-name {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			backface-visibility: hidden;
+			border-radius: 50%;
+		}
+	
+		.tech-tile-name {
+			font-size: 19px;
+			color: black;
+			font-weight: bold;
+			rotate: y 180deg;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.tech-tile-image {
+			object-fit: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		  }
+	}
 }
 
-.tech-tile-container:hover {
-  .tech-tile-image {
-    opacity: 0.15;
-  }
-
-  .tech-tile-name {
-    opacity: 1;
-  }
-}
 
 @media screen and (max-width: 1085px) {
   .tech-tile-container {
