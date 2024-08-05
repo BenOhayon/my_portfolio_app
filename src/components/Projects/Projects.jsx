@@ -6,6 +6,7 @@ import Carousel from '../Carousel/Carousel'
 import './Projects.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
 import ProjectTile from '../ProjectTile/ProjectTile'
+import { useAppContext } from '../MainApp/App'
 
 const projects = [
 	{
@@ -25,29 +26,14 @@ const projects = [
 ]
 
 export default function Projects() {
-
-	const [showCarousel, setShowCarousel] = useState(false)
-
-	const projectsRef = useRef(null)
-
-	useEffect(() => {
-		if (projectsRef?.current) {
-			const observer = new ResizeObserver(() => {
-				setShowCarousel(window.innerWidth < 1085)
-			});
-
-			observer.observe(projectsRef?.current)
-
-			return () => {
-				observer.disconnect()
-			}
-		}
-	}, [])
+	const {
+		isMobile
+	} = useAppContext()
 
 	return (
-		<section ref={projectsRef} id='projects' className='projects-container'>
+		<section id='projects' className='projects-container'>
 			<div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-title header'>My Projects</div>
-			{showCarousel ? <Carousel projects={projects} /> : <div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-list'>
+			{isMobile ? <Carousel projects={projects} /> : <div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-list'>
 				{
 					projects.map(project => <ProjectTile
 						key={project?.id}

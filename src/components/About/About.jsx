@@ -3,13 +3,18 @@ import TechStack from '../TechStack/TechStack'
 
 import './About.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
+import { useAppContext } from '../MainApp/App'
 
 export default function About() {
+	const {
+		isMobile
+	} = useAppContext()
+
 	return (
 		<section id='about' className='about-container'>
 			<div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='about-title header'>About Me</div>
 			<div className="about-content">
-				<div data-aos="fade-right" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-summery about-subsection">
+				<div data-aos={isMobile ? "fade-up" : "fade-right"} data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-summery about-subsection">
 					<div className="about-summery-title section-inner-title">Who am I?</div>
 					<p className='about-summery-desc paragraph-content'>
 						A <strong>frontend web developer</strong> with 5 years of experience in software development.
@@ -22,7 +27,7 @@ export default function About() {
 					</p>
 				</div>
 
-				<div data-aos="fade-left" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-tech-stack about-subsection">
+				<div data-aos={isMobile ? "fade-up" : "fade-left"} data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-tech-stack about-subsection">
 					<TechStack />
 				</div>
 			</div>
