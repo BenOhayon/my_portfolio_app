@@ -15,18 +15,20 @@ import javaImage from '../../../assets/java_image.jpg'
 import androidImage from '../../../assets/android_image.png'
 import nodeRedImage from '../../../assets/nodered_image.png'
 import githubImage from '../../../assets/github_image.png'
+import reduxImage from '../../../assets/redux_image.webp'
 
 import './TechStack.scss'
 
 const techStack = {
 	'React': reactImage,
+	'Redux': reduxImage,
 	'Node': nodeImage,
 	'Express': expressImage,
 	'JavaScript': jsImage,
 	'TypeScript': tsImage,
 	'SCSS': scssImage,
-	'HTML5': htmlImage,
-	'CSS3': cssImage,
+	'CSS': cssImage,
+	'HTML': htmlImage,
 	'Ruby': rubyImage,
 	'Rails': railsImage,
 	'Java': javaImage,
