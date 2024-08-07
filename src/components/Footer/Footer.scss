@@ -5,7 +5,7 @@
   color: white;
 
   .footer-content {
-    padding: 25px 15%;
+    padding: 25px 50px;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -15,10 +15,10 @@
       position: absolute;
       background-color: #cccccc;
       height: 1px;
-      width: 70%;
+      width: calc(100% - 100px);
       bottom: 20px;
-      right: 15%;
-      left: 15%;
+      right: 50px;
+      left: 50px;
     }
 
     .footer-summery {
@@ -84,9 +84,20 @@
 
 @media screen and (max-width: 1085px) {
   .footer-container .footer-content {
-    padding: 25px 7% 35px 7%;
+    padding: 25px 15px 35px 15px;
     flex-direction: column;
     align-items: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: #cccccc;
+      height: 1px;
+      width: calc(100% - 30px);
+      bottom: 20px;
+      right: 15px;
+      left: 15px;
+    }
   }
 
   .social-link {

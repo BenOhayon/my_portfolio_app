@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser';
 
 import './ContactMe.scss'
@@ -9,6 +9,21 @@ const FEEDBACK_MESSAGE_STATUS = {
 	FAILURE: 'FAILURE'
 }
 
+const inputInitialState = {
+	name: {
+		value: '',
+		error: false
+	},
+	email: {
+		value: '',
+		error: false
+	},
+	message: {
+		value: '',
+		error: false
+	}
+}
+
 export default function ContactMe() {
 
 	const [isProcessing, setIsProcessing] = useState(false)
@@ -16,32 +31,56 @@ export default function ContactMe() {
 		message: '',
 		status: ''
 	})
+	const [inputState, setInputState] = useState(inputInitialState)
+	const [isAbleToSendMail, setIsAbleToSendMail] = useState(false)
 
 	const formRef = useRef()
-	const nameRef = useRef()
-	const subjectRef = useRef()
-	const messageRef = useRef()
+
+	useEffect(() => {
+		setIsAbleToSendMail(
+			inputState.name.value !== '' && inputState.email.value !== '' && inputState.message.value !== ''
+		)
+	}, [inputState])
 
 	function resetFields() {
-		nameRef.current.value = ''
-		subjectRef.current.value = ''
-		messageRef.current.value = ''
+		setInputState(inputInitialState)
 	}
 
 	function onInputChange(e) {
-		e.target.classList.remove('input-error')
+		setInputState(prev => ({
+			...prev,
+			[e.target.name]: {
+				value: e.target.value,
+				error: false
+			}
+		}))
 	}
 
-	function isVerified(name, message) {
-		let verified = true;
+	function highlightInputError(inputName) {
+		setInputState(prev => ({
+			...prev,
+			[inputName]: {
+				...prev[inputName],
+				error: true
+			}
+		}))
+	}
 
-		if (name.current.value.length === 0) {
-			name.current.classList.add('input-error')
+	function fieldsVerified() {
+		let verified = true
+
+		if (inputState.name.value === '') {
+			highlightInputError('name')
 			verified = false
 		}
 
-		if (message.current.value.length === 0) {
-			message.current.classList.add('input-error')
+		if (inputState.email.value === '') {
+			highlightInputError('email')
+			verified = false
+		}
+
+		if (inputState.message.value === '') {
+			highlightInputError('message')
 			verified = false
 		}
 
@@ -55,7 +94,7 @@ export default function ContactMe() {
 			message: ''
 		}))
 
-		if (isVerified(nameRef, messageRef)) {
+		if (fieldsVerified()) {
 			setIsProcessing(true)
 			// send an email
 			emailjs.sendForm(
@@ -76,7 +115,7 @@ export default function ContactMe() {
 				.catch(err => {
 					console.log(err)
 					setFeedbackMessageState({
-						message: 'An error occurred',
+						message: 'An error has occurred',
 						status: FEEDBACK_MESSAGE_STATUS.FAILURE
 					})
 					resetFields()
@@ -92,18 +131,18 @@ export default function ContactMe() {
 				<div data-aos="fade-left" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='contact-me-content-line-1'>Interested in hiring me?</div>
 				<div data-aos="fade-right" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='contact-me-content-line-2'>Call me on <a href='tel:0545805203' className='contact-me-phone-number'>054-5805203</a> or send me a message!</div>
 			</div>
-			<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} ref={formRef} className='contact-form'>
-				<input ref={nameRef} onChange={onInputChange} className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
-				<input ref={subjectRef} onChange={onInputChange} className='contact-subject-input contact-input' type='email' name='email' placeholder='Enter your email' />
-				<textarea ref={messageRef} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={7} />
+			<form data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} ref={formRef} className='contact-form'>
+				<input value={inputState.name.value} onChange={onInputChange} className='contact-name-input contact-input' type='text' name='name' placeholder='Enter your name' />
+				<input value={inputState.email.value} onChange={onInputChange} className='contact-email-input contact-input' type='email' name='email' placeholder='Enter your email' />
+				<textarea value={inputState.message.value} onChange={onInputChange} className='contact-content-input contact-input' name='message' placeholder='Enter your message' rows={7} />
 
 				<div className="contact-lower-frame">
 					<div className="contact-feedback-message" style={{ color: feedbackMessageState.status === FEEDBACK_MESSAGE_STATUS.SUCCESS ? 'green' : 'red' }}>{feedbackMessageState.message}</div>
-					<button className='contact-send-button button' onClick={handleSubmit}>
+					<button className='contact-send-button button' disabled={!isAbleToSendMail} onClick={handleSubmit}>
 						{!isProcessing ? 'Send' : <div className='loader'></div>}
 					</button>
 				</div>
-			</div>
+			</form>
 		</section>
 	)
 }
