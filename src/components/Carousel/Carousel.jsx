@@ -2,27 +2,20 @@ import React, { useRef, useState } from 'react'
 import CarouselButton from '../CarouselButton/CarouselButton'
 import ProjectTile from '../ProjectTile/ProjectTile'
 import CarouselIndicator from '../CarouselIndicator/CarouselIndicator'
-import { useWindowDimensions } from '../../hooks/useWindowDimensions'
 
 import './Carousel.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
-
-const MOBILE_MAX_WIDTH = 495
+import { useAppContext } from '../MainApp/App'
 
 export default function Carousel({ projects }) {
 
+	const {
+		isMobile
+	} = useAppContext()
 	const [carouselIndex, setCarouselIndex] = useState(0)
 	const touchPositionRef = useRef(null)
-	const [width, height] = useWindowDimensions()
-	const carouselNextButtonRef = useRef()
-	const carouselPreviousButtonRef = useRef()
 
 	function goToNextElement() {
-		carouselPreviousButtonRef.current.classList.remove('hide')
-		if (carouselIndex + 1 === projects.length - 1) {
-			carouselNextButtonRef.current.classList.add('hide')
-		}
-
 		setCarouselIndex(prevIndex => {
 			if (prevIndex < projects.length - 1)
 				return prevIndex + 1
@@ -31,11 +24,6 @@ export default function Carousel({ projects }) {
 	}
 
 	function goToPreviousElement() {
-		carouselNextButtonRef.current.classList.remove('hide')
-		if (carouselIndex - 1 === 0) {
-			carouselPreviousButtonRef.current.classList.add('hide')
-		}
-
 		setCarouselIndex(prevIndex => {
 			if (prevIndex > 0)
 				return prevIndex - 1
@@ -44,21 +32,11 @@ export default function Carousel({ projects }) {
 	}
 
 	function updateCarouselIndex(index) {
-		if (index === 0) {
-			carouselPreviousButtonRef.current.classList.add('hide')
-			carouselNextButtonRef.current.classList.remove('hide')
-		} else if (index === projects.length - 1) {
-			carouselNextButtonRef.current.classList.add('hide')
-			carouselPreviousButtonRef.current.classList.remove('hide')
-		} else {
-			carouselPreviousButtonRef.current.classList.remove('hide')
-			carouselNextButtonRef.current.classList.remove('hide')
-		}
 		setCarouselIndex(index)
 	}
 
 	function handleTouchStart(e) {
-		if (width > MOBILE_MAX_WIDTH)
+		if (!isMobile)
 			return
 
 		const touchDown = e.touches[0].clientX
@@ -66,7 +44,7 @@ export default function Carousel({ projects }) {
 	}
 
 	function handleTouchMove(e) {
-		if (width > MOBILE_MAX_WIDTH)
+		if (!isMobile)
 			return
 
 		const touchDown = touchPositionRef.current
@@ -92,7 +70,7 @@ export default function Carousel({ projects }) {
 	return (
 		<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='carousel' onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
 			<div className="carousel-slider">
-				<CarouselButton ref={carouselPreviousButtonRef} onClick={goToPreviousElement} direction='previous' />
+				<CarouselButton isHidden={carouselIndex === 0} onClick={goToPreviousElement} direction='previous' />
 				<div className='slides'>
 					{projects.map((project, index) =>
 						<div key={project.url} style={{ translate: `calc(${carouselIndex} * -115%)` }} className='carousel-item'>
@@ -107,7 +85,7 @@ export default function Carousel({ projects }) {
 					)
 					}
 				</div>
-				<CarouselButton ref={carouselNextButtonRef} onClick={goToNextElement} direction='next' carouselIndex={carouselIndex} />
+				<CarouselButton isHidden={carouselIndex === projects.length - 1} onClick={goToNextElement} direction='next' />
 			</div>
 			<CarouselIndicator carouselIndex={carouselIndex} length={projects.length} updateCarouselIndex={updateCarouselIndex} />
 		</div>

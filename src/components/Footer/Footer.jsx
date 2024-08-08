@@ -44,7 +44,7 @@ export default function Footer() {
 				</div>
 			</div>
 			<div className="footer-copyright">
-				© Copyright {new Date().getFullYear()}. Developed by Ben Ohayon
+				Copyright © {new Date().getFullYear()}. Developed by Ben Ohayon
 			</div>
 		</footer>
 	);
