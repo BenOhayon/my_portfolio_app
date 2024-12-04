@@ -15,7 +15,7 @@ export default function Hero() {
 	return (
 		<section id='hero' className='hero-container'>
 			<div className="hero-title">Hey, I'm Ben Ohayon</div>
-			<div className="hero-subtitle">A Web Developer</div>
+			<div className="hero-subtitle">Senior Fullstack Developer</div>
 
 			<div className="hero-socials">
 				{Object.keys(socials).map(social => {
