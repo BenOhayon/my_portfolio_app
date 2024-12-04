@@ -8,7 +8,6 @@ import Footer from '../Footer/Footer'
 import './HomePage.scss'
 import { useParams } from 'react-router-dom'
 import { fullstackDeveloperData, softwareDeveloperData } from '../../constants/general.constants'
-import { useAppContext } from '../MainApp/App'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
 
 export default function HomePage({ onClick }) {

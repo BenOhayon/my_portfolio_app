@@ -1,10 +1,9 @@
 import { useRef, useEffect, useState, createContext, useContext } from 'react'
 import HomePage from '../HomePage/HomePage'
 import NavBar from '../NavBar/NavBar'
-import upArrow from '../../../assets/up-arrow.svg'
 
 import './App.scss'
-import { fullstackDeveloperData, MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
+import { MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 const AppContext = createContext()
@@ -16,7 +15,6 @@ export function useAppContext() {
 export default function App() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
     
-    const slideToPageTopButtonRef = useRef()
     const mobileNavBarMenuRef = useRef()
     const appRef = useRef()
     
