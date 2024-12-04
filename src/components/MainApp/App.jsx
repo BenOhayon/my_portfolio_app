@@ -69,10 +69,10 @@ export default function App() {
                         </>}
                     />
 
-                    <Route
+                    {/* <Route
                         path='*'
                         element={<Navigate to={`/${resumeType}`} />}
-                    />
+                    /> */}
                 </Routes>
             </AppContext.Provider>
         </div>
