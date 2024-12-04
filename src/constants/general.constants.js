@@ -25,6 +25,13 @@ import kafkaImage from '../../assets/kafka-image.png'
 export const AOS_DURATION_MILLISECONDS = 1000
 export const MOBILE_SCREEN_WIDTH_THRESHOLD_PX = 1085
 
+const sharedSkills = {
+    'Docker': dockerImage,
+    'AWS': awsImage,
+    'GitHub': githubImage,
+    'Node-RED': nodeRedImage,
+}
+
 export const fullstackDeveloperData = {
     role: 'senior fullstack developer',
     techStack: {
@@ -41,9 +48,7 @@ export const fullstackDeveloperData = {
         'Rails': railsImage,
         'Java': javaImage,
         'Android': androidImage,
-        'Node-RED': nodeRedImage,
-        'AWS': awsImage,
-        'GitHub': githubImage
+        ...sharedSkills
     }
 }
 
@@ -59,10 +64,8 @@ export const softwareDeveloperData = {
         'Kafka': kafkaImage,
         'MongoDB': mongoImage,
         'Redis': redisImage,
-        'Docker': dockerImage,
         'Ruby': rubyImage,
         'Rails': railsImage,
-        'Android': androidImage,
-        'Node-RED': nodeRedImage,
+        ...sharedSkills
     }
 }

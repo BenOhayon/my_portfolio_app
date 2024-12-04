@@ -6,19 +6,24 @@ import Hero from '../Hero/Hero'
 import Footer from '../Footer/Footer'
 
 import './HomePage.scss'
-import { useParams } from 'react-router-dom'
 import { fullstackDeveloperData, softwareDeveloperData } from '../../constants/general.constants'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
 
-export default function HomePage({ onClick }) {
-    const { type } = useParams('type')
-    const resumeData = type === 'fs' ? fullstackDeveloperData : softwareDeveloperData
+export default function HomePage({ onClick, type }) {
+    const resumeData = getResumeData(type)
 
     useEffect(() => {
-        if (type) {
+        if (type && (type === 'fs' || type === 'se')) {
             localStorage.setItem(RESUME_TYPE_KEY, type)
         }
     }, [])
+
+    function getResumeData(type) {
+        switch (type) {
+            case 'fs': return fullstackDeveloperData
+            case 'se': return softwareDeveloperData
+        }
+    }
 
 	return (
 		<div onClick={onClick} className='home-page-container'>

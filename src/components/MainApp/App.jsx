@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar'
 import './App.scss'
 import { MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
 
 const AppContext = createContext()
 
@@ -14,17 +15,15 @@ export function useAppContext() {
 
 export default function App() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
-    
+
     const mobileNavBarMenuRef = useRef()
     const appRef = useRef()
-    
-    const resumeType = localStorage.getItem('resumeType') ?? 'fs'
+
+    const resumeType = localStorage.getItem(RESUME_TYPE_KEY) ?? 'fs'
 
     function closeNavBarMenu(e) {
         mobileNavBarMenuRef.current.classList.add('hide')
     }
-
-    console.log({resumeType})
 
     useEffect(() => {
         if (appRef?.current) {
@@ -52,18 +51,26 @@ export default function App() {
 
     return (
         <div ref={appRef}>
-            <AppContext.Provider value={{ isMobile, resumeType }}>
+            <AppContext.Provider value={{ isMobile }}>
                 <Routes>
                     <Route
-                        path='/:type'
+                        path='/fs'
                         element={<>
                             <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
-                            <HomePage onClick={closeNavBarMenu} />
+                            <HomePage onClick={closeNavBarMenu} type='fs' />
                         </>}
                     />
 
                     <Route
-                        path='/*'
+                        path='/se'
+                        element={<>
+                            <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
+                            <HomePage onClick={closeNavBarMenu} type='se' />
+                        </>}
+                    />
+
+                    <Route
+                        path='*'
                         element={<Navigate to={`/${resumeType}`} />}
                     />
                 </Routes>

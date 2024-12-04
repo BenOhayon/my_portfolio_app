@@ -22,7 +22,6 @@ export default function Hero({
     } = useAppContext()
 
     function goToAbout() {
-        // window.location.href = window.location.host + window.location.pathname + '#about'
         document.querySelector('#about').scrollIntoView({
             behavior: "smooth"
         })
