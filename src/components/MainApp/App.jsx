@@ -4,68 +4,72 @@ import NavBar from '../NavBar/NavBar'
 import upArrow from '../../../assets/up-arrow.svg'
 
 import './App.scss'
-import { MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
+import { fullstackDeveloperData, MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 const AppContext = createContext()
 
 export function useAppContext() {
-	return useContext(AppContext)
+    return useContext(AppContext)
 }
 
-function App() {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
+export default function App() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
+    
+    const slideToPageTopButtonRef = useRef()
+    const mobileNavBarMenuRef = useRef()
+    const appRef = useRef()
+    
+    const resumeType = localStorage.getItem('resumeType') ?? 'fs'
 
-	const slideToPageTopButtonRef = useRef()
-	const mobileNavBarMenuRef = useRef()
-	const appRef = useRef()
+    function closeNavBarMenu(e) {
+        mobileNavBarMenuRef.current.classList.add('hide')
+    }
 
-	function closeNavBarMenu(e) {
-		mobileNavBarMenuRef.current.classList.add('hide')
-	}
+    console.log({resumeType})
 
-	useEffect(() => {
-		window.onscroll = function () {
-			if (window.pageYOffset === 0) {
-				slideToPageTopButtonRef.current.classList.add('hide')
-			} else {
-				slideToPageTopButtonRef.current.classList.remove('hide')
-			}
-		};
+    useEffect(() => {
+        if (appRef?.current) {
+            const observer = new ResizeObserver(() => {
+                setIsMobile(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
+            })
 
-		if (appRef?.current) {
-			const observer = new ResizeObserver(() => {
-				setIsMobile(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
-			})
+            observer.observe(appRef?.current)
 
-			observer.observe(appRef?.current)
+            return () => {
+                observer.disconnect()
+                window.onscroll = null
+            }
+        }
 
-			return () => {
-				observer.disconnect()
-				window.onscroll = null
-			}
-		}
+        return () => window.onscroll = null
+    }, [])
 
-		return () => window.onscroll = null
-	}, [])
+    function scrollToPageTop() {
+        window.scroll({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
 
-	function scrollToPageTop() {
-		window.scroll({
-			top: 0,
-			behavior: 'smooth'
-		})
-	}
+    return (
+        <div ref={appRef}>
+            <AppContext.Provider value={{ isMobile, resumeType }}>
+                <Routes>
+                    <Route
+                        path='/:type'
+                        element={<>
+                            <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
+                            <HomePage onClick={closeNavBarMenu} />
+                        </>}
+                    />
 
-	return (
-		<div ref={appRef}>
-			<AppContext.Provider value={{ isMobile }}>
-				<NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
-				<HomePage onClick={closeNavBarMenu} />
-				<div ref={slideToPageTopButtonRef} onClick={scrollToPageTop} className="slide-to-page-top-button hide">
-					<img src={upArrow} alt='Go to page top' />
-				</div>
-			</AppContext.Provider>
-		</div>
-	)
+                    <Route
+                        path='/*'
+                        element={<Navigate to={`/${resumeType}`} />}
+                    />
+                </Routes>
+            </AppContext.Provider>
+        </div>
+    )
 }
-
-export default App

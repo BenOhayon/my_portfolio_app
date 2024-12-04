@@ -22,6 +22,8 @@
 }
 
 .contact-me-title {
+  width: fit-content;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;

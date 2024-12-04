@@ -22,6 +22,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none; 
   z-index: 10;
+  scroll-behavior: smooth;
 }
 
 .slide-to-page-top-button {

@@ -1,0 +1,1 @@
+export const RESUME_TYPE_KEY = 'resumeType'

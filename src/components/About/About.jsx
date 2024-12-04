@@ -5,7 +5,9 @@ import './About.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
 import { useAppContext } from '../MainApp/App'
 
-export default function About() {
+export default function About({
+    resumeData
+}) {
 	const {
 		isMobile
 	} = useAppContext()
@@ -14,10 +16,10 @@ export default function About() {
 		<section id='about' className='about-container'>
 			<div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='about-title header'>About Me</div>
 			<div className="about-content">
-				<div data-aos={isMobile ? "fade-up" : "fade-right"} data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-summery about-subsection">
+				<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-summery about-subsection">
 					<div className="about-summery-title section-inner-title">Who am I?</div>
 					<p className='about-summery-desc paragraph-content'>
-						A <strong>senior fullstack developer</strong> with 5 years of experience.
+						A <strong>{resumeData?.role}</strong> with 5 years of experience.
 						I'm currently looking for my next challenge as a <strong>frontend or fullstack web developer</strong> in a place where I can learn, grow and contribute.
 						I have passion for coding and learning new technologies, independent and <strong>self learner</strong> with 'can do' attitude.
 					</p>
@@ -27,8 +29,8 @@ export default function About() {
 					</p>
 				</div>
 
-				<div data-aos={isMobile ? "fade-up" : "fade-left"} data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-tech-stack about-subsection">
-					<TechStack />
+				<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-tech-stack about-subsection">
+					<TechStack techStack={resumeData?.techStack} />
 				</div>
 			</div>
 		</section>
