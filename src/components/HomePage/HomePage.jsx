@@ -8,12 +8,13 @@ import Footer from '../Footer/Footer'
 import './HomePage.scss'
 import { fullstackDeveloperData, softwareDeveloperData } from '../../constants/general.constants'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { TYPE_PARAM } from '../../constants/params.constants'
 import WorkExperience from '../WorkExperience/WorkExperience'
 
 export default function HomePage({ onClick }) {
     const { type } = useParams(TYPE_PARAM)
+    const navigate = useNavigate()
 
     const resumeData = getResumeData(type)
 
@@ -28,6 +29,10 @@ export default function HomePage({ onClick }) {
             case 'fs': return fullstackDeveloperData
             case 'se': return softwareDeveloperData
         }
+    }
+
+    if (!resumeData) {
+        return <Navigate to='/' replace={true} />
     }
 
 	return (
