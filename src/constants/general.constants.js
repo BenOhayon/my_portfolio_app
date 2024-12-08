@@ -34,6 +34,7 @@ const sharedSkills = {
 
 export const fullstackDeveloperData = {
     role: 'senior fullstack developer',
+    targetRoles: ['frontend developer', 'fullstack developer'],
     techStack: {
         'React': reactImage,
         'Redux': reduxImage,
@@ -49,11 +50,56 @@ export const fullstackDeveloperData = {
         'Java': javaImage,
         'Android': androidImage,
         ...sharedSkills
-    }
+    },
+    workExperience: [
+        {
+            role: 'frontend web developer',
+            company: "PaydIn",
+            timePeriod: {
+                fromYear: 2023,
+                toYear: 'today'
+            },
+            description: [
+                'Developing and designing a product for promoting sales in social medias',
+                'UI/UX development',
+                "Working with <b>React, Javascript, CSS3</b> and <b>Figma</b>"
+            ]
+        },
+        {
+            role: 'fullstack developer',
+            company: "MySize",
+            timePeriod: {
+                fromYear: 2021,
+                toYear: 2023
+            },
+            description: [
+                'Developed and designed web services for providing size recommendations',
+                'Developed <b>web apps & REST APIs</b>',
+                "Client side developed with <b>React, Javascript, SCSS</b> and <b>HTML</b>",
+                "Server side developed with <b>Ruby on Rails</b> and <b>PostgreSQL</b> database",
+                "Cloud services: <b>Heroku</b> and <b>AWS</b>",
+                "Working with <b>Zeplin</b>"
+            ]
+        },
+        {
+            role: 'Android Developer',
+            company: "MySize",
+            timePeriod: {
+                fromYear: 2019,
+                toYear: 2021
+            },
+            description: [
+                'Developed and maintained the size recommendation core mechanism',
+                'Developed and maintained MySize <b>mobile apps</b> and <b>mobile SDKs</b>',
+                "Working with <b>Java</b> and <b>Zeplin</b>"
+            ]
+        }
+    ]
 }
 
 export const softwareDeveloperData = {
     role: 'software developer',
+    targetRoles: ['software engineer backend oriented'],
     techStack: {
         'Java': javaImage,
         'Spring Boot': springBootImage,
@@ -67,5 +113,52 @@ export const softwareDeveloperData = {
         'Ruby': rubyImage,
         'Rails': railsImage,
         ...sharedSkills
-    }
+    },
+    workExperience: [
+        {
+            role: 'Software Engineer (backend oriented)',
+            company: "PaydIn",
+            timePeriod: {
+                fromYear: 2023,
+                toYear: 'today'
+            },
+            description: [
+                'Developing and designing a product for promoting sales in social medias',
+                'Working with high-scale customers',
+                'Analyzing requirements & development',
+                'Part of 3 elite developers team',
+                "Working with <b>Figma</b>"
+            ]
+        },
+        {
+            role: 'Software Engineer (backend oriented)',
+            company: "MySize",
+            timePeriod: {
+                fromYear: 2021,
+                toYear: 2023
+            },
+            description: [
+                'Developed and designed web services for providing size recommendations',
+                'Implemented unique algorithms & patents',
+                "System design for scalability & security",
+                'Developed <b>web apps & REST APIs</b>',
+                "<b>PostgreSQL</b> database",
+                "Cloud services: <b>Heroku</b> and <b>AWS</b>",
+                "Working with <b>Zeplin</b>"
+            ]
+        },
+        {
+            role: 'Android Developer',
+            company: "MySize",
+            timePeriod: {
+                fromYear: 2019,
+                toYear: 2021
+            },
+            description: [
+                'Developed and maintained the size recommendation core mechanism',
+                'Developed and maintained MySize <b>mobile apps</b> and <b>mobile SDKs</b>',
+                "Working with <b>Java</b> and <b>Zeplin</b>"
+            ]
+        }
+    ]
 }

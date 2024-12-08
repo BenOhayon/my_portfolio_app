@@ -1,0 +1,22 @@
+.header {
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    margin-bottom: 45px;
+    width: 100%;
+    text-align: center;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(100% + 1rem);
+      height: 5px;
+      width: 3rem;
+      background: var(--theme-color);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+  }

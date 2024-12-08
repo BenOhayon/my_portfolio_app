@@ -54,18 +54,10 @@ export default function App() {
             <AppContext.Provider value={{ isMobile }}>
                 <Routes>
                     <Route
-                        path='/fs'
+                        path='/:type'
                         element={<>
                             <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
-                            <HomePage onClick={closeNavBarMenu} type='fs' />
-                        </>}
-                    />
-
-                    <Route
-                        path='/se'
-                        element={<>
-                            <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
-                            <HomePage onClick={closeNavBarMenu} type='se' />
+                            <HomePage onClick={closeNavBarMenu} />
                         </>}
                     />
 

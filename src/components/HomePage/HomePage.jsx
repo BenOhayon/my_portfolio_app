@@ -8,8 +8,13 @@ import Footer from '../Footer/Footer'
 import './HomePage.scss'
 import { fullstackDeveloperData, softwareDeveloperData } from '../../constants/general.constants'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
+import { useParams } from 'react-router-dom'
+import { TYPE_PARAM } from '../../constants/params.constants'
+import WorkExperience from '../WorkExperience/WorkExperience'
 
-export default function HomePage({ onClick, type }) {
+export default function HomePage({ onClick }) {
+    const { type } = useParams(TYPE_PARAM)
+
     const resumeData = getResumeData(type)
 
     useEffect(() => {
@@ -29,7 +34,7 @@ export default function HomePage({ onClick, type }) {
 		<div onClick={onClick} className='home-page-container'>
 			<Hero resumeData={resumeData} />
 			<About resumeData={resumeData} />
-			<Projects />
+            <WorkExperience resumeData={resumeData}/>
 			<ContactMe />
 			<Footer resumeData={resumeData} />
 		</div>
