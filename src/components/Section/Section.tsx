@@ -12,11 +12,17 @@ export default function Section({
 }: SectionProps) {
 
     const sectionStyles = {
-        ...(maxWidth ? { maxWidth: getMaxWidth(), marginInline: 'auto' } : {})
+        ...getMaxWidth()
     }
 
     function getMaxWidth() {
-        return typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`
+        if (typeof maxWidth === 'string') {
+            if (maxWidth === 'unset') {
+                return {}
+            }
+            return { maxWidth, marginInline: 'auto' }
+        }
+        return { maxWidth: `${maxWidth}px`, marginInline: 'auto' }
     }
 
     return (
