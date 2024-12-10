@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import About from '../About/About'
-import Projects from '../Projects/Projects'
 import ContactMe from '../ContactMe/ContactMe'
 import Hero from '../Hero/Hero'
 import Footer from '../Footer/Footer'
@@ -8,13 +7,11 @@ import Footer from '../Footer/Footer'
 import './HomePage.scss'
 import { fullstackDeveloperData, softwareDeveloperData } from '../../constants/general.constants'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import { TYPE_PARAM } from '../../constants/params.constants'
+import { Navigate, useParams } from 'react-router-dom'
 import WorkExperience from '../WorkExperience/WorkExperience'
 
 export default function HomePage({ onClick }) {
-    const { type } = useParams(TYPE_PARAM)
-    const navigate = useNavigate()
+    const { type } = useParams()
 
     const resumeData = getResumeData(type)
 

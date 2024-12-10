@@ -22,7 +22,7 @@ export default function Hero({
     } = useAppContext()
 
     function goToAbout() {
-        document.querySelector('#about').scrollIntoView({
+        document.querySelector('[id="about"]')?.scrollIntoView({
             behavior: "smooth"
         })
     }

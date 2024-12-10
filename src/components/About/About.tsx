@@ -1,15 +1,17 @@
 import React from 'react'
-import TechStack from '../TechStack/TechStack'
+import TechStack from '../TechStack/TechStack.js'
 
 import './About.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
-import Section from '../Section/Section'
+import Section from '../Section/Section.js'
+import { ResumeData } from '../../types'
+import { AboutProps } from '../../propTypes'
 
 export default function About({
     resumeData
-}) {
+}: AboutProps) {
 
-    function buildTargetRolesString(resumeData) {
+    function buildTargetRolesString(resumeData: ResumeData): string {
         let targetRoles = ''
         for (let i = 0; i < resumeData?.targetRoles.length; i++) {
             targetRoles += resumeData?.targetRoles[i]

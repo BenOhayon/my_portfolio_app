@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import flashTriviaProjectThumbnail from '../../../assets/flash-trivia-thumbnail.png'
 import portfolioProjectThumbnail from '../../../assets/portfolio-thumbnail.png'
-import Carousel from '../Carousel/Carousel'
 
 import './Projects.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
@@ -26,24 +25,21 @@ const projects = [
 ]
 
 export default function Projects() {
-	const {
-		isMobile
-	} = useAppContext()
-
 	return (
 		<section id='projects' className='projects-container'>
 			<div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-title header'>My Projects</div>
-			{isMobile ? <Carousel projects={projects} /> : <div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-list'>
+			<div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-list'>
 				{
 					projects.map(project => <ProjectTile
-						key={project?.id}
-						name={project.name}
-						description={project.description}
-						url={project.url}
-						thumbnail={project.thumbnail} />
+                        key={project?.id}
+                        name={project.name}
+                        description={project.description}
+                        url={project.url}
+                        thumbnail={project.thumbnail} 
+                        isSelected={undefined} />
 					)
 				}
-			</div>}
+			</div>
 		</section>
 	)
 }

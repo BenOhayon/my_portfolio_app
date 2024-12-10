@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, createContext, useContext } from 'react'
+import React, { useRef, useEffect, useState, createContext, useContext } from 'react'
 import HomePage from '../HomePage/HomePage'
 import NavBar from '../NavBar/NavBar'
 
@@ -6,8 +6,13 @@ import './App.scss'
 import { MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
+import { AppContextData } from '../../types'
 
-const AppContext = createContext()
+const initialContextData: AppContextData = {
+    isMobile: false
+}
+
+const AppContext = createContext<AppContextData>(initialContextData)
 
 export function useAppContext() {
     return useContext(AppContext)
@@ -16,13 +21,15 @@ export function useAppContext() {
 export default function App() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
 
-    const mobileNavBarMenuRef = useRef()
-    const appRef = useRef()
+    const mobileNavBarMenuRef = useRef<HTMLUListElement>(null)
+    const appRef = useRef<HTMLDivElement>(null)
 
     const resumeType = localStorage.getItem(RESUME_TYPE_KEY) ?? 'fs'
 
-    function closeNavBarMenu(e) {
-        mobileNavBarMenuRef.current.classList.add('hide')
+    function closeNavBarMenu() {
+        if (mobileNavBarMenuRef.current) {
+            mobileNavBarMenuRef.current.classList.add('hide')
+        }
     }
 
     useEffect(() => {

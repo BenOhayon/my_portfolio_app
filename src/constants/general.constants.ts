@@ -22,6 +22,8 @@ import redisImage from '../../assets/redis-image.webp'
 import mongoImage from '../../assets/mongo-image.webp'
 import kafkaImage from '../../assets/kafka-image.png'
 
+import { ResumeData } from '../types'
+
 export const AOS_DURATION_MILLISECONDS = 1000
 export const MOBILE_SCREEN_WIDTH_THRESHOLD_PX = 1085
 
@@ -32,7 +34,7 @@ const sharedSkills = {
     'Node-RED': nodeRedImage,
 }
 
-export const fullstackDeveloperData = {
+export const fullstackDeveloperData: ResumeData = {
     role: 'senior fullstack developer',
     targetRoles: ['frontend developer', 'fullstack developer'],
     techStack: {
@@ -57,7 +59,7 @@ export const fullstackDeveloperData = {
             company: "PaydIn",
             timePeriod: {
                 fromYear: 2023,
-                toYear: 'today'
+                toYear: 'present'
             },
             description: [
                 'Developing and designing a product for promoting sales in social medias',
@@ -97,7 +99,7 @@ export const fullstackDeveloperData = {
     ]
 }
 
-export const softwareDeveloperData = {
+export const softwareDeveloperData: ResumeData = {
     role: 'software developer',
     targetRoles: ['software engineer backend oriented'],
     techStack: {
@@ -120,7 +122,7 @@ export const softwareDeveloperData = {
             company: "PaydIn",
             timePeriod: {
                 fromYear: 2023,
-                toYear: 'today'
+                toYear: 'present'
             },
             description: [
                 'Developing and designing a product for promoting sales in social medias',

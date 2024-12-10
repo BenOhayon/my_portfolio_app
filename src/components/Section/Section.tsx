@@ -1,17 +1,22 @@
 import React from 'react'
 import './Section.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
+import { SectionProps } from '../../propTypes'
 
 export default function Section({
     children,
     header,
     sectionClassName,
     sectionId,
-    maxWidth = null
-}) {
+    maxWidth = 'unset'
+}: SectionProps) {
 
     const sectionStyles = {
-        ...(maxWidth ? { maxWidth: `${maxWidth}px`, marginInline: 'auto' } : {})
+        ...(maxWidth ? { maxWidth: getMaxWidth(), marginInline: 'auto' } : {})
+    }
+
+    function getMaxWidth() {
+        return typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`
     }
 
     return (

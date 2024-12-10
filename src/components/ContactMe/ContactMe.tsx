@@ -35,7 +35,7 @@ export default function ContactMe() {
     const [inputState, setInputState] = useState(inputInitialState)
     const [isAbleToSendMail, setIsAbleToSendMail] = useState(false)
 
-    const formRef = useRef()
+    const formRef = useRef<HTMLFormElement>(null)
 
     useEffect(() => {
         setIsAbleToSendMail(
@@ -101,7 +101,7 @@ export default function ContactMe() {
             emailjs.sendForm(
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
                 import.meta.env.VITE_EMAILJS_PORTFOLIO_TEMPLATE_ID,
-                formRef.current,
+                formRef?.current as HTMLFormElement,
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             )
                 .then(res => {

@@ -6,6 +6,7 @@ import upArrow from '../../../assets/up-arrow.svg'
 
 import "./Footer.scss";
 import { useAppContext } from "../MainApp/App";
+import { FooterProps } from "../../propTypes";
 
 const socials = {
     "https://www.facebook.com/profile.php?id=100000341139297": <BiLogoFacebook className="social-link-image" />,
@@ -15,7 +16,7 @@ const socials = {
 
 export default function Footer({
     resumeData
-}) {
+}: FooterProps) {
 
     const {
         isMobile
@@ -34,7 +35,7 @@ export default function Footer({
                 {
                     !isMobile && <div className="footer-go-to-top-button" onClick={goToTop}>
                         <img className="footer-go-to-top-button-image" src={upArrow} alt='Go to About' />
-                        <div className="footer-go-to-top-button-text">Go to top</div>
+                        <div className="footer-go-to-top-button-text">Back to top</div>
                     </div>
                 }
                 <div className="footer-summery">

@@ -14,7 +14,7 @@ const SCROLL_LINK_OFFSET = -110;
 
 export default function NavBar({ mobileNavBarMenuRef, scrollToPageTop, closeNavBarMenu }) {
 
-    const { type } = useParams('type')
+    const { type } = useParams()
 
 	const [isMobileMenuClosed, setIsMobileMenuClosed] = useState(true)
 
