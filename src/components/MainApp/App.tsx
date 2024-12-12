@@ -6,7 +6,7 @@ import './App.scss'
 import { MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
-import { AppContextData } from '../../types'
+import { AppContextData, ResumeType } from '../../types'
 
 const initialContextData: AppContextData = {
     isMobile: false
@@ -23,8 +23,6 @@ export default function App() {
 
     const mobileNavBarMenuRef = useRef<HTMLUListElement>(null)
     const appRef = useRef<HTMLDivElement>(null)
-
-    const resumeType = localStorage.getItem(RESUME_TYPE_KEY) ?? 'fs'
 
     function closeNavBarMenu() {
         if (mobileNavBarMenuRef.current) {
@@ -70,7 +68,7 @@ export default function App() {
 
                     <Route
                         path='/*'
-                        element={<Navigate to={`/${resumeType}`} />}
+                        element={<Navigate to={`/${localStorage.getItem(RESUME_TYPE_KEY) ?? ResumeType.FS}`} />}
                     />
                 </Routes>
             </AppContext.Provider>

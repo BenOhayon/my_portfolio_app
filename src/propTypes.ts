@@ -10,6 +10,9 @@ export type WorkExperienceProps = MainComponentProps
 export type ContactMeProps = MainComponentProps
 export type HeroProps = MainComponentProps
 export type FooterProps = MainComponentProps
+export type HomePageProps = {
+    onClick: () => void
+}
 
 export type TechStackProps = {
     techStack: TechStack

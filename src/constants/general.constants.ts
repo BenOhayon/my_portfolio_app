@@ -164,3 +164,64 @@ export const softwareDeveloperData: ResumeData = {
         }
     ]
 }
+
+export const frontendDeveloperData: ResumeData = {
+    role: 'frontend developer',
+    targetRoles: ['frontend developer'],
+    techStack: {
+        'React': reactImage,
+        'Redux': reduxImage,
+        'JavaScript': jsImage,
+        'TypeScript': tsImage,
+        'SCSS': scssImage,
+        'CSS': cssImage,
+        'HTML': htmlImage,
+        'Java': javaImage,
+        'Android': androidImage,
+        ...sharedSkills
+    },
+    workExperience: [
+        {
+            role: 'Frontend Web Developer',
+            company: "PaydIn",
+            timePeriod: {
+                fromYear: 2023,
+                toYear: 'present'
+            },
+            description: [
+                'Developing and designing a product for promoting sales in social medias',
+                'UI/UX development',
+                'Developed <b>responsive web apps</b>',
+                "Working with <b>React, Javascript, CSS3, Material UI</b> and <b>Figma</b>"
+            ]
+        },
+        {
+            role: 'Frontend Web Developer',
+            company: "MySize",
+            timePeriod: {
+                fromYear: 2021,
+                toYear: 2023
+            },
+            description: [
+                'Developed and designed web services for providing size recommendations',
+                'Developed <b>responsive web apps</b>',
+                "Developed with <b>React, Javascript, SCSS</b> and <b>HTML</b>",
+                "Cloud services: <b>Heroku</b> and <b>AWS</b>",
+                "Working with <b>Zeplin</b>"
+            ]
+        },
+        {
+            role: 'Android Developer',
+            company: "MySize",
+            timePeriod: {
+                fromYear: 2019,
+                toYear: 2021
+            },
+            description: [
+                'Developed and maintained the size recommendation core mechanism',
+                'Developed and maintained MySize <b>mobile apps</b> and <b>mobile SDKs</b>',
+                "Working with <b>Java</b> and <b>Zeplin</b>"
+            ]
+        }
+    ]
+}

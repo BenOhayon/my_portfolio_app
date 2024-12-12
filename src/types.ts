@@ -22,3 +22,5 @@ export type TechStack = {
 export type AppContextData = {
     isMobile: boolean
 }
+
+export enum ResumeType { FS = 'fs', FE = 'fe', SE = 'se' }
