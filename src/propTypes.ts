@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, RefObject } from "react"
 import { ResumeData, TechStack } from "./types"
 
 export type MainComponentProps = {
@@ -10,6 +10,11 @@ export type WorkExperienceProps = MainComponentProps
 export type ContactMeProps = MainComponentProps
 export type HeroProps = MainComponentProps
 export type FooterProps = MainComponentProps
+export type NavBarProps = {
+    mobileNavBarMenuRef: RefObject<HTMLUListElement>, 
+    scrollToPageTop: () => void,
+    closeNavBarMenu: () => void
+}
 export type HomePageProps = {
     onClick: () => void
 }
