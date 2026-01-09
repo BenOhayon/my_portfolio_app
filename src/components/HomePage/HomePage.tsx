@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import About from '../About/About.js'
-import ContactMe from '../ContactMe/ContactMe'
 import Hero from '../Hero/Hero'
 import Footer from '../Footer/Footer'
 
@@ -44,7 +43,6 @@ const HomePage: React.FC<HomePageProps> = ({ onClick }) => {
 			<Hero resumeData={resumeData} />
 			<About resumeData={resumeData} />
           <WorkExperience resumeData={resumeData}/>
-			<ContactMe />
 			<Footer resumeData={resumeData} />
 		</div>
 	)
