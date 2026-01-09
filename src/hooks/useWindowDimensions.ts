@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 
 export function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState([])
+  const [windowDimensions, setWindowDimensions] = useState<[number, number]>([0, 0])
 
-  function extractWindowDimensions() {
+  const extractWindowDimensions = (): [number, number] => {
     const { innerWidth: width, innerHeight: height } = window
 
     return [width, height]
   }
 
   useEffect(() => {
-    function updateWindowDimensions() {
+    const updateWindowDimensions = () => {
       setWindowDimensions(extractWindowDimensions())
     }
 

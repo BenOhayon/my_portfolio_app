@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { RefObject, useState } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import fullstackResumeFile from '../../../documents/ben_ohayon_resume_fs.pdf'
 import softwareEngineerResumeFile from '../../../documents/ben_ohayon_resume_se.pdf'
@@ -9,39 +9,43 @@ import { IoMdMenu } from "react-icons/io"
 
 import './NavBar.scss'
 import { useParams } from 'react-router-dom'
-import { NavBarProps } from '../../propTypes'
-import { ResumeType } from '../../types'
+
+interface NavBarProps {
+    mobileNavBarMenuRef: RefObject<HTMLUListElement>, 
+    scrollToPageTop: () => void,
+    closeNavBarMenu: () => void
+}
 
 const LINK_SLIDING_ANIMATION_DURATION = 350;
 const SCROLL_LINK_OFFSET = -110;
 
-export default function NavBar({ 
-    mobileNavBarMenuRef, 
-    scrollToPageTop, 
-    closeNavBarMenu 
-}: NavBarProps) {
-
-    const { type } = useParams()
+const NavBar: React.FC<NavBarProps> = ({ 
+  mobileNavBarMenuRef, 
+  scrollToPageTop, 
+  closeNavBarMenu 
+}) => {
+  const { type } = useParams()
 
 	const [isMobileMenuClosed, setIsMobileMenuClosed] = useState(true)
 
-	function toggleNavBarMenu() {
+	const toggleNavBarMenu = () => {
 		mobileNavBarMenuRef.current?.classList.toggle('hide')
 		setIsMobileMenuClosed(previousValue => !previousValue)
 	}
 
-	function onNavBarMenuOptionClick() {
+	const onNavBarMenuOptionClick = () => {
 		closeNavBarMenu()
 		setIsMobileMenuClosed(true)
 	}
 
-    function getResumeFile() {
-        switch (type) {
-            case ResumeType.FS: return fullstackResumeFile
-            case ResumeType.SE: return softwareEngineerResumeFile
-            default: return frontendDeveloperResumeFile
-        }
+  const getResumeFile = (): string => {
+    switch (type) {
+      case 'fs': return fullstackResumeFile
+      case 'se': return softwareEngineerResumeFile
+      case 'fe': return frontendDeveloperResumeFile
+      default: return ''
     }
+  }
 
 	return (
 		<nav>
@@ -67,3 +71,5 @@ export default function NavBar({
 		</nav>
 	)
 }
+
+export default NavBar;

@@ -2,8 +2,15 @@ import React from 'react'
 
 import './ProjectTile.scss'
 
-export default function ProjectTile({ name, description, url, thumbnail, isSelected }) {
+interface ProjectTileProps {
+  name: string
+  description: string
+  url: string
+  thumbnail: string
+  isSelected?: boolean
+}
 
+const ProjectTile: React.FC<ProjectTileProps> = ({ name, description, url, thumbnail, isSelected }) => {
   return (
     <a href={url} target='_blank' className={`project-tile-container ${isSelected ? 'selected' : ''}`}>
       <img className='project-tile-image' src={thumbnail} alt='project tile image' />
@@ -14,3 +21,5 @@ export default function ProjectTile({ name, description, url, thumbnail, isSelec
     </a>
   )
 }
+
+export default ProjectTile;

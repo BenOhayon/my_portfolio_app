@@ -32,7 +32,7 @@ const sharedSkills = {
   AWS: awsImage,
   GitHub: githubImage,
   'Node-RED': nodeRedImage,
-}
+} as const
 
 const frontendSkills = {
   React: reactImage,
@@ -43,7 +43,7 @@ const frontendSkills = {
   CSS: cssImage,
   HTML: htmlImage,
   Android: androidImage,
-}
+} as const
 
 const frontendWebSharedWorkExperience: ResumeData['workExperience'] = [
   {
@@ -72,7 +72,7 @@ const frontendWebSharedWorkExperience: ResumeData['workExperience'] = [
       "Working with <b>React, Javascript, CSS3</b> and <b>Figma</b>"
     ]
   },
-]
+] as const
 
 const androidSharedWorkExperience: ResumeData['workExperience'] = [
   {
@@ -88,7 +88,7 @@ const androidSharedWorkExperience: ResumeData['workExperience'] = [
       "Working with <b>Java</b> and <b>Zeplin</b>"
     ]
   },
-]
+] as const
 
 export const fullstackDeveloperData: ResumeData = {
   role: 'senior fullstack developer',
@@ -122,7 +122,7 @@ export const fullstackDeveloperData: ResumeData = {
     },
     ...androidSharedWorkExperience,
   ]
-}
+} as const
 
 export const softwareDeveloperData: ResumeData = {
   role: 'software developer',
@@ -176,10 +176,10 @@ export const softwareDeveloperData: ResumeData = {
     },
     ...androidSharedWorkExperience,
   ]
-}
+} as const
 
 export const frontendDeveloperData: ResumeData = {
-  role: 'frontend developer',
+  role: 'Senior Frontend Developer',
   targetRoles: ['frontend developer'],
   techStack: {
     ...frontendSkills,
@@ -204,4 +204,4 @@ export const frontendDeveloperData: ResumeData = {
     },
     ...androidSharedWorkExperience,
   ]
-}
+} as const

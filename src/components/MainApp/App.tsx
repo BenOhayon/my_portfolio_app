@@ -6,72 +6,73 @@ import './App.scss'
 import { MOBILE_SCREEN_WIDTH_THRESHOLD_PX } from '../../constants/general.constants'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { RESUME_TYPE_KEY } from '../../constants/storage.constants'
-import { AppContextData, ResumeType } from '../../types'
+import { AppContextData } from '../../types'
 
 const initialContextData: AppContextData = {
-    isMobile: false
+  isMobile: false
 }
 
 const AppContext = createContext<AppContextData>(initialContextData)
 
-export function useAppContext() {
-    return useContext(AppContext)
+export const useAppContext = () => {
+  return useContext(AppContext)
 }
 
-export default function App() {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
+const App: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
 
-    const mobileNavBarMenuRef = useRef<HTMLUListElement>(null)
-    const appRef = useRef<HTMLDivElement>(null)
+  const mobileNavBarMenuRef = useRef<HTMLUListElement>(null)
+  const appRef = useRef<HTMLDivElement>(null)
 
-    function closeNavBarMenu() {
-        if (mobileNavBarMenuRef.current) {
-            mobileNavBarMenuRef.current.classList.add('hide')
-        }
+  const closeNavBarMenu = () => {
+    if (mobileNavBarMenuRef.current) {
+        mobileNavBarMenuRef.current.classList.add('hide')
+    }
+  }
+
+  useEffect(() => {
+    if (appRef?.current) {
+      const observer = new ResizeObserver(() => {
+        setIsMobile(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
+      })
+
+      observer.observe(appRef?.current)
+
+      return () => {
+        observer.disconnect()
+        window.onscroll = null
+      }
     }
 
-    useEffect(() => {
-        if (appRef?.current) {
-            const observer = new ResizeObserver(() => {
-                setIsMobile(window.innerWidth < MOBILE_SCREEN_WIDTH_THRESHOLD_PX)
-            })
+    return () => window.onscroll = null
+  }, [])
 
-            observer.observe(appRef?.current)
+  const scrollToPageTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
-            return () => {
-                observer.disconnect()
-                window.onscroll = null
-            }
-        }
-
-        return () => window.onscroll = null
-    }, [])
-
-    function scrollToPageTop() {
-        window.scroll({
-            top: 0,
-            behavior: 'smooth'
-        })
-    }
-
-    return (
-        <div ref={appRef}>
-            <AppContext.Provider value={{ isMobile }}>
-                <Routes>
-                    <Route
-                        path='/:type'
-                        element={<>
-                            <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
-                            <HomePage onClick={closeNavBarMenu} />
-                        </>}
-                    />
-
-                    <Route
-                        path='/*'
-                        element={<Navigate to={`/${localStorage.getItem(RESUME_TYPE_KEY) ?? ResumeType.FS}`} />}
-                    />
-                </Routes>
-            </AppContext.Provider>
-        </div>
-    )
+  return (
+    <div ref={appRef}>
+      <AppContext.Provider value={{ isMobile }}>
+        <Routes>
+          <Route
+            path='/:type'
+            element={<>
+                <NavBar mobileNavBarMenuRef={mobileNavBarMenuRef} scrollToPageTop={scrollToPageTop} closeNavBarMenu={closeNavBarMenu} />
+                <HomePage onClick={closeNavBarMenu} />
+            </>}
+          />
+          <Route
+            path='/*'
+            element={<Navigate to={`/${localStorage.getItem(RESUME_TYPE_KEY) ?? 'fs'}`} />}
+          />
+        </Routes>
+      </AppContext.Provider>
+    </div>
+  )
 }
+
+export default App;

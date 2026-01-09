@@ -1,11 +1,13 @@
 import React from 'react'
 import TechTile from '../TechTile/TechTile.js'
 import './TechStack.scss'
-import { TechStackProps } from '../../propTypes.js'
+import { TechStackData } from '../../types.js';
 
-export default function TechStack({
-    techStack
-}: TechStackProps) {
+interface TechStackProps {
+  techStack: TechStackData;
+}
+
+const TechStack: React.FC<TechStackProps> = ({ techStack }) => {
 	return (
 		<div className='tech-stack-container'>
 			<h2 className='tech-stack-title section-inner-title'>Tech Stack</h2>
@@ -15,3 +17,5 @@ export default function TechStack({
 		</div>
 	)
 }
+
+export default TechStack;

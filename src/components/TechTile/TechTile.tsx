@@ -1,7 +1,12 @@
 import React from 'react'
 import './TechTile.scss'
 
-export default function TechTile({ techName, techImageUrl }) {
+interface TechTileProps {
+  techName: string;
+  techImageUrl: string;
+}
+
+const TechTile: React.FC<TechTileProps> = ({ techName, techImageUrl }) => {
 	return (
 		<div className='tech-tile-container'>
 			<div className="tech-tile">
@@ -11,3 +16,5 @@ export default function TechTile({ techName, techImageUrl }) {
 		</div>
 	)
 }
+
+export default TechTile;

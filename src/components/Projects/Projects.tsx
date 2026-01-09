@@ -5,7 +5,6 @@ import portfolioProjectThumbnail from '../../../assets/portfolio-thumbnail.png'
 import './Projects.scss'
 import { AOS_DURATION_MILLISECONDS } from '../../constants/general.constants'
 import ProjectTile from '../ProjectTile/ProjectTile'
-import { useAppContext } from '../MainApp/App'
 
 const projects = [
 	{
@@ -24,7 +23,7 @@ const projects = [
 	}
 ]
 
-export default function Projects() {
+const Projects: React.FC = () => {
 	return (
 		<section id='projects' className='projects-container'>
 			<div data-aos="fade-down" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className='projects-title header'>My Projects</div>
@@ -43,3 +42,5 @@ export default function Projects() {
 		</section>
 	)
 }
+
+export default Projects;

@@ -1,26 +1,26 @@
-export type ResumeData = {
-    role: string,
-    targetRoles: string[],
-    techStack: TechStack,
-    workExperience: WorkExperienceStep[]
+interface WorkExperienceStep {
+  role: string;
+  company: string;
+  timePeriod: {
+    fromYear: number;
+    toYear: number | 'present';
+  };
+  description: string[];
 }
 
-type WorkExperienceStep = {
-    role: string,
-    company: string,
-    timePeriod: {
-        fromYear: number,
-        toYear: number | 'present',
-    }
-    description: string[]
+export interface TechStackData {
+  [key: string]: string;
 }
 
-export type TechStack = {
-    [key: string]: string
+export interface ResumeData {
+  role: string;
+  targetRoles: string[];
+  techStack: TechStackData;
+  workExperience: WorkExperienceStep[];
 }
 
 export type AppContextData = {
-    isMobile: boolean
+  isMobile: boolean;
 }
 
-export enum ResumeType { FS = 'fs', FE = 'fe', SE = 'se' }
+export type ResumeType = 'fs' | 'fe' | 'se';
