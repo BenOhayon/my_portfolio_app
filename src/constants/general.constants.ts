@@ -3,14 +3,14 @@ import reactImage from '../../assets/react_image.png'
 import nodeImage from '../../assets/node_image.png'
 import expressImage from '../../assets/express_image.png'
 import tsImage from '../../assets/ts_image.png'
+import jsImage from '../../assets/js_image.jpeg'
 import scssImage from '../../assets/scss_image.png'
-import htmlImage from '../../assets/html_image.png'
-import cssImage from '../../assets/css_image.jpg'
+import claudeImage from '../../assets/claude_image.jpeg'
+import chatGptImage from '../../assets/chatgpt_image.jpg'
 import rubyImage from '../../assets/ruby_image.jpg'
 import railsImage from '../../assets/rails_image.png'
 import javaImage from '../../assets/java_image.jpg'
-import androidImage from '../../assets/android_image.png'
-import nodeRedImage from '../../assets/nodered_image.png'
+import githubCopilot from '../../assets/github_copilot_image.png'
 import githubImage from '../../assets/github_image.png'
 import springBootImage from '../../assets/spring-image.png'
 import dockerImage from '../../assets/docker-image.webp'
@@ -21,6 +21,8 @@ import mongoImage from '../../assets/mongo-image.webp'
 import kafkaImage from '../../assets/kafka-image.png'
 import mobxImage from '../../assets/mobx.svg'
 import styledComponentsImage from '../../assets/styled-components.png'
+import reduxImage from '../../assets/redux_image.jpg'
+import reactQueryImage from '../../assets/react_query_image.jpg'
 
 import { ResumeData } from '../types'
 
@@ -28,53 +30,54 @@ export const AOS_DURATION_MILLISECONDS = 1000
 export const MOBILE_SCREEN_WIDTH_THRESHOLD_PX = 1085
 
 const sharedSkills = {
-  Docker: dockerImage,
-  AWS: awsImage,
   GitHub: githubImage,
-  'Node-RED': nodeRedImage,
+  'GitHub Copilot': githubCopilot,
+  Claude: claudeImage,
+  ChatGPT: chatGptImage,
 } as const
 
 const frontendSkills = {
   React: reactImage,
   TypeScript: tsImage,
+  JavaScript: jsImage,
+  Redux: reduxImage,
   MobX: mobxImage,
+  'React Query': reactQueryImage,
   'Styled Components': styledComponentsImage,
   SCSS: scssImage,
-  CSS: cssImage,
-  HTML: htmlImage,
-  Android: androidImage,
 } as const
 
-const frontendWebSharedWorkExperience: ResumeData['workExperience'] = [
+const frontendWebSharedWorkExperience = [
   {
-    role: 'Frontend Web Developer',
+    role: 'Frontend Developer',
     company: "Cellxpert",
     timePeriod: {
       fromYear: 2025,
       toYear: 'present'
     },
-    description: [
-      'Developing a product for affiliate management',
-      'Developed <b>responsive web apps</b>',
-      "Working with <b>React, TypeScript, MobX, Styled Components</b> and <b>Figma</b>"
-    ]
+    description: 'Increased customers and developer productivity, boosting revenue and reducing development time by implementing two <b>React–TypeScript</b> dashboards with <b>Cypress</b> testing.'
   },
   {
     role: 'frontend web developer',
     company: "PaydIn",
     timePeriod: {
       fromYear: 2023,
-      toYear: 'present'
+      toYear: 2024,
     },
-    description: [
-      'Developing and designing a product for promoting sales in social medias',
-      'UI/UX development',
-      "Working with <b>React, Javascript, CSS3</b> and <b>Figma</b>"
-    ]
+    description: 'Drove customer satisfaction and 30% conversion growth by implementing two complex <b>React</b> dashboards for <b>B2B platforms</b>.'
   },
-] as const
+  {
+    role: 'Fullstack Developer',
+    company: "MySize",
+    timePeriod: {
+      fromYear: 2021,
+      toYear: 2023
+    },
+    description: 'Improved customer satisfaction and conversion rates by embedding JavaScript scripts and a size-recommendation widget into client websites.'
+  },
+] as const satisfies ResumeData['workExperience'];
 
-const androidSharedWorkExperience: ResumeData['workExperience'] = [
+const androidSharedWorkExperience = [
   {
     role: 'Android Developer',
     company: "MySize",
@@ -88,7 +91,7 @@ const androidSharedWorkExperience: ResumeData['workExperience'] = [
       "Working with <b>Java</b> and <b>Zeplin</b>"
     ]
   },
-] as const
+] as const satisfies ResumeData['workExperience'];
 
 export const fullstackDeveloperData: ResumeData = {
   role: 'senior fullstack developer',
@@ -100,6 +103,8 @@ export const fullstackDeveloperData: ResumeData = {
     Ruby: rubyImage,
     Rails: railsImage,
     Java: javaImage,
+    Docker: dockerImage,
+    AWS: awsImage,
     ...sharedSkills
   },
   workExperience: [
@@ -139,6 +144,8 @@ export const softwareDeveloperData: ResumeData = {
     Redis: redisImage,
     Ruby: rubyImage,
     Rails: railsImage,
+    Docker: dockerImage,
+    AWS: awsImage,
     ...sharedSkills
   },
   workExperience: [
@@ -179,7 +186,7 @@ export const softwareDeveloperData: ResumeData = {
 } as const
 
 export const frontendDeveloperData: ResumeData = {
-  role: 'Senior Frontend Developer',
+  role: 'Frontend Developer',
   targetRoles: ['frontend developer'],
   techStack: {
     ...frontendSkills,
@@ -187,21 +194,5 @@ export const frontendDeveloperData: ResumeData = {
   },
   workExperience: [
     ...frontendWebSharedWorkExperience,
-    {
-      role: 'Frontend Web Developer',
-      company: "MySize",
-      timePeriod: {
-        fromYear: 2021,
-        toYear: 2023
-      },
-      description: [
-        'Developed and designed web services for providing size recommendations',
-        'Developed <b>responsive web apps</b>',
-        "Developed with <b>React, Javascript, SCSS</b> and <b>HTML</b>",
-        "Cloud services: <b>Heroku</b> and <b>AWS</b>",
-        "Working with <b>Zeplin</b>"
-      ]
-    },
-    ...androidSharedWorkExperience,
   ]
 } as const

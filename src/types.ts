@@ -1,16 +1,14 @@
-interface WorkExperienceStep {
+export interface WorkExperienceStep {
   role: string;
   company: string;
   timePeriod: {
     fromYear: number;
     toYear: number | 'present';
   };
-  description: string[];
+  description: string[] | string;
 }
 
-export interface TechStackData {
-  [key: string]: string;
-}
+export type TechStackData = Record<string, string>;
 
 export interface ResumeData {
   role: string;

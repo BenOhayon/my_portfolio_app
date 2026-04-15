@@ -67,7 +67,7 @@ const App: React.FC = () => {
           />
           <Route
             path='/*'
-            element={<Navigate to={`/${localStorage.getItem(RESUME_TYPE_KEY) ?? 'fs'}`} />}
+            element={<Navigate to={`/${localStorage.getItem(RESUME_TYPE_KEY) ?? 'fe'}`} />}
           />
         </Routes>
       </AppContext.Provider>
