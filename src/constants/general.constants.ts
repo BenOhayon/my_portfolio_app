@@ -55,7 +55,7 @@ const frontendWebSharedWorkExperience = [
       fromYear: 2025,
       toYear: 'present'
     },
-    description: 'Increased customers and developer productivity, boosting revenue and reducing development time by implementing two <b>React–TypeScript</b> dashboards with <b>Cypress</b> testing.'
+    description: '<b>Led the migration of a large-scale affiliate management platform from AngularJS</b> to <b>React</b> + <b>TypeScript</b>, designing data-intensive dashboards with multi-tab structures and scalable, reusable components using <b>MobX</b>. Collaborated with Product, and Backend teams to redesign user flows and introduce new features — delivering improved usability, reduced technical debt, and a frontend architecture that enabled faster feature development.'
   },
   {
     role: 'frontend web developer',
@@ -64,7 +64,7 @@ const frontendWebSharedWorkExperience = [
       fromYear: 2023,
       toYear: 2024,
     },
-    description: 'Drove customer satisfaction and 30% conversion growth by implementing two complex <b>React</b> dashboards for <b>B2B platforms</b>.'
+    description: "Built a <b>B2B</b> social-commerce platform from scratch using <b>React</b> and <b>JavaScript</b>, solving Instagram's single-link limitation by implementing a smart shopping cart with shared carts, complementary products, and out-of-stock fallbacks. <b>Owned the full product lifecycle</b> — from definition and UX collaboration to deployment — structuring data flow and component hierarchy for scalability and performance, ultimately <b>increasing client revenue by 30%</b> and establishing a new standardized sales approach for social-commerce businesses."
   },
   {
     role: 'Fullstack Developer',
@@ -73,7 +73,7 @@ const frontendWebSharedWorkExperience = [
       fromYear: 2021,
       toYear: 2023
     },
-    description: 'Improved customer satisfaction and conversion rates by embedding JavaScript scripts and a size-recommendation widget into client websites.'
+    description: "Embedded customized size-predicting scripts using <b>Javascript</b> for clients' websites, leading to more compatible size recommendations improving their end users' size compatibility. Developed and maintained an internal resourse management dashboard, leading to better business insights and increased productivity. Developed and maintained the company's widget using <b>React</b> & <b>Javascript</b>, creating size recommendations and increasing size compatibility for end users."
   },
 ] as const satisfies ResumeData['workExperience'];
 

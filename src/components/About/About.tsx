@@ -11,21 +11,9 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ resumeData }) => {
-  const buildTargetRolesString = (resumeData: ResumeData): string => {
-    return resumeData.targetRoles.reduce((acc, role, index) => {
-      if (index === 0) {
-        return role
-      } else if (index === resumeData.targetRoles.length - 1) {
-        return `${acc} or ${role}`
-      } else {
-        return `${acc}, ${role}`
-      }
-    }, '')
-  }
-
   const calculateExperienceYears = (): number => {
     const currentYear = new Date().getFullYear()
-    const startingYear = 2019
+    const startingYear = 2022
     return currentYear - startingYear - 1;
   }
 
@@ -39,13 +27,7 @@ const About: React.FC<AboutProps> = ({ resumeData }) => {
         <div data-aos="fade-up" data-aos-duration={`${AOS_DURATION_MILLISECONDS}`} className="about-summery about-subsection">
           <div className="about-summery-title section-inner-title">Who am I?</div>
           <p className='about-summery-desc paragraph-content'>
-            A software developer with {calculateExperienceYears()} years of experience.
-            I'm currently looking for my next challenge as a <strong>{buildTargetRolesString(resumeData)}</strong> in a place where I can learn, grow and contribute.
-            I have passion for coding and learning new technologies, independent and <strong>self learner</strong> with 'can do' attitude.
-          </p>
-          <p className='about-summery-desc paragraph-content'>
-            In addition, I developed a <strong>Node-RED</strong> app (a low code platform for IOT applications) for smart home management on a <strong>Raspberry PI</strong>.
-            This app connects to an <strong>ABB PLC</strong>, which is integrated to every electronic device in a house.
+            <strong>Frontend Engineer with {calculateExperienceYears()} years</strong> of experience building <strong>scalable, production-grade</strong> applications using <strong>React</strong> and <strong>TypeScript</strong> in data-driven environments.<br/>Experienced in designing <strong>modular component architectures</strong>, optimizing performance, and delivering high-impact user-facing solutions. Strong collaborator with Product, UX, and Backend teams, with a user-first mindset and a focus on clean, maintainable, and secure code. Proven ability to translate complex requirements into intuitive interfaces that <strong>improve usability, performance, and business</strong> outcomes <strong>including measurable growth of 30%</strong>.
           </p>
         </div>
 
